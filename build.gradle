@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+    id 'groovy'
+    id "org.jetbrains.kotlin.jvm" version "1.5.20-M1"
+}
+
+group = 'com.sputik'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation 'commons-io:commons-io:20030203.000550'
+    testImplementation 'org.assertj:assertj-core:3.20.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.0-M1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.0-M1'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test:1.5.20-M1'
+}
+
+application {
+    getMainClass().set('com.sputik.playground.PlaygroundApplication')
+}
+
+test {
+    useJUnitPlatform()
+    ignoreFailures   = true
+    reports {
+        junitXml.enabled = true
+    }
+}
+
