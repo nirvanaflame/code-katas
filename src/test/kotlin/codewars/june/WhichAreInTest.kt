@@ -16,7 +16,6 @@ class WhichAreInTest {
     private fun inArray(first: Array<String>, second: Array<String>): Array<String> =
             first.distinct()
                 .filter { substring -> second.any { it.contains(substring) } }
-                .find {  }
                 .sorted()
                 .toTypedArray()
 }
