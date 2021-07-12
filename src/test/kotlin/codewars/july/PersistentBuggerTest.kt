@@ -22,7 +22,7 @@ class PersistentBuggerTest {
 
     @Test
     fun `codewars best solution`() {
-        assertEquals(1, persistenceClever(3))
+        assertEquals(0, persistenceClever(3))
         assertEquals(4, persistenceClever(999))
     }
 
