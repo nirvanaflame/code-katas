@@ -1,7 +1,6 @@
 package codewars.july
 
-import io.kotest.core.spec.style.DescribeSpec
-import io.kotest.matchers.shouldBe
+
 
 
 /**
@@ -9,6 +8,7 @@ import io.kotest.matchers.shouldBe
  * The array is either entirely composed of odd integers or entirely composed of even integers
  * except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
  */
+/*
 class FindTheParityOutlier : DescribeSpec({
 
     describe("Find single odd or even value in an array") {
@@ -33,6 +33,7 @@ class FindTheParityOutlier : DescribeSpec({
         }
     }
 })
+*/
 
 
 fun find(arr: IntArray): Int {

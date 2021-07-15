@@ -47,10 +47,10 @@ class PersistentBuggerTest {
             count++
             println(number)
             number = number.toString()
-                .split("")
-                .filter(String::isNotBlank)
-                .map { it.toInt() }
-                .reduce { acc, each -> acc * each }
+                    .split("")
+                    .filter(String::isNotBlank)
+                    .map { it.toInt() }
+                    .reduce { acc, each -> acc * each }
         }
 
         return count
