@@ -1,12 +1,4 @@
-fun mains() {
-
-    val first = readLine()!!.toInt()
-    val second = readLine()!!.toInt()
-    val third = readLine()!!.toInt()
-
-    print(first in second..third)
+fun main() {
+    val s = readLine()!!.first()
+    print(s.isDigit().and(s != '0').or(s.isUpperCase()))
 }
-
-fun main() = print(
-        readLine()!!.toInt() in readLine()!!.toInt()..readLine()!!.toInt()
-)
