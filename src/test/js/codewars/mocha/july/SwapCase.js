@@ -1,6 +1,14 @@
-const { assert } = require("chai")
+const {
+  assert
+} = require("chai")
 
 
+/**
+ * altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+ * Define String.prototype.toAlternatingCase 
+ * such that each lowercase letter becomes uppercase 
+ * and each uppercase letter becomes lowercase
+ */
 describe("String.prototype.toAlternatingCase", () => {
   it("should work for fixed asserts (provided in the description)", () => {
     assert.strictEqual("hello world".toAlternatingCase(), "HELLO WORLD");
@@ -14,15 +22,6 @@ describe("String.prototype.toAlternatingCase", () => {
   });
 });
 
-
-/**
- * 
- * altERnaTIng cAsE <=> ALTerNAtiNG CaSe
- * Define String.prototype.toAlternatingCase 
- * such that each lowercase letter becomes uppercase 
- * and each uppercase letter becomes lowercase
- * 
- */
 String.prototype.toAlternatingCase = function () {
   return this.split('').map(char => (char == char.toLowerCase()) ? char.toUpperCase() : char.toLowerCase()).join('')
 };

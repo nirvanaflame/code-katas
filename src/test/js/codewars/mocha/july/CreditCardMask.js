@@ -2,6 +2,7 @@ const {
   assert
 } = require("chai")
 
+
 /**
  * Usually when you buy something, you 're asked whether your credit card number,
  * phone number or answer to your most secret question is still correct. 
@@ -17,7 +18,7 @@ const {
  * maskify("") == ""
  * 
  * // "What was the name of your first pet?"
- *  maskify("Skippy") == "##ippy"
+ * maskify("Skippy") == "##ippy"
  * maskify("Nananananananananananananananana Batman!") == "####################################man!"
  */
 describe("Credit Card Mask", () => {

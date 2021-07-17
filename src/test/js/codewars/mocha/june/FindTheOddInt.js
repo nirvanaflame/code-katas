@@ -2,6 +2,11 @@ const {
   expect
 } = require("chai");
 
+
+/**
+ * Given an array of integers, find the one that appears an odd number of times.
+ * There will always be only one integer that appears an odd number of times.
+ */
 describe("Find the number which appears odd times in array", () => {
 
   describe("My solution", () => {
@@ -48,14 +53,6 @@ describe("Find the number which appears odd times in array", () => {
 
 })
 
-
-/**
- * Given an array of integers, find the one that appears an odd number of times.
- * There will always be only one integer that appears an odd number of times.
- *
- * @param {*} arr
- * @returns number which appears odd time in array
- */
 function findOdd(arr) {
   const groupByNumber = arr.reverse().reduce((map, it) => map.set(it, (map.get(it) || 0) + 1), new Map())
   // console.log(groupByNumber)

@@ -7,7 +7,7 @@ const should = require("chai").should()
  * Otherwise, it should return false. If the array is empty, 
  * it should return true, since technically nothing failed the test.
  */
-describe('True for all', () =>{
+describe('True for all', () => {
 
   describe('My solution', () => {
     it('should return true for empty array', () => {
@@ -15,11 +15,11 @@ describe('True for all', () =>{
     })
 
     it('should return true after filter because size has not changed ', () => {
-      all([1,2,3,4], (it) => it > 0).should.to.be.true
+      all([1, 2, 3, 4], (it) => it > 0).should.to.be.true
     })
 
     it('should return false after filter because size has changed ', () => {
-      all([1,2,3,4], (it) => it > 0).should.to.be.true
+      all([1, 2, 3, 4], (it) => it > 0).should.to.be.true
     })
   })
 
@@ -29,11 +29,11 @@ describe('True for all', () =>{
     })
 
     it('should return true after filter because size has not changed ', () => {
-      codeWarsAll([1,2,3,4], (it) => it > 0).should.to.be.true
+      codeWarsAll([1, 2, 3, 4], (it) => it > 0).should.to.be.true
     })
 
     it('should return false after filter because size has changed ', () => {
-      codeWarsAll([1,2,3,4], (it) => it > 0).should.to.be.true
+      codeWarsAll([1, 2, 3, 4], (it) => it > 0).should.to.be.true
     })
   })
 

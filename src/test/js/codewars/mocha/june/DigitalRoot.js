@@ -1,5 +1,14 @@
-const { expect } = require("chai");
+const {
+  expect
+} = require("chai");
 
+
+/**
+ * Digital root is the recursive sum of all the digits in a number.
+ * Given n, take the sum of the digits of n.
+ * If that value has more than one digit, continue reducing in this way until a single-digit number is produced.
+ * The input will be a non-negative integer.
+ */
 describe("Sum digits while number is not simple", () => {
 
   it("should sum number with two digits", () => {
@@ -19,20 +28,11 @@ describe("Sum digits while number is not simple", () => {
   })
 })
 
-
-/*
-Digital root is the recursive sum of all the digits in a number.
-
-Given n, take the sum of the digits of n.
-If that value has more than one digit, continue reducing in this way until a single-digit number is produced.
-The input will be a non-negative integer.
-*/
-
 function digitalRoot(n) {
   return (n < 0 || n < 10) ? n : digitalRoot(
     n.toString().split('')
-      .map(it => parseInt(it))
-      .reduce((acc, each) => acc + each)
+    .map(it => parseInt(it))
+    .reduce((acc, each) => acc + each)
   )
 }
 

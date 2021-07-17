@@ -2,6 +2,7 @@ const {
   assert
 } = require("chai")
 
+
 /**
  * Given an array of integers, 
  * Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
@@ -34,7 +35,6 @@ describe('Maximum Product', () => {
     assert.equal(adjacentElementsProduct([1, 2, 3, 0]), 6);
   })
 })
-
 
 function adjacentElementsProduct(array) {
   const multi = []
