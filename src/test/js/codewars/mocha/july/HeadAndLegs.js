@@ -41,13 +41,10 @@ function animals(heads, legs) {
   if (heads <= 0 || legs <= 0) return "No solutions"
   if (heads * 4 < legs) return "No solutions"
 
-  console.log(`heads: ${heads} and legs: ${legs}`)
-
   const cows = legs / 2 - heads
   const chickens = heads - cows
 
   if (cows % 1 !== 0) return "No solutions"
-
 
   return [chickens, cows]
 }

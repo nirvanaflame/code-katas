@@ -2,9 +2,6 @@ const {
   assert
 } = require("chai")
 
-
-console.log(adjacentElementsProduct([4, 12, 3, 1, 5]))
-
 /**
  * Given an array of integers, 
  * Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
