@@ -31,6 +31,8 @@ class SumPoweredDigitsTest {
                 List.of(),
                 sumDigPow(90, 100)
         );
+
+
     }
 
     @Test
