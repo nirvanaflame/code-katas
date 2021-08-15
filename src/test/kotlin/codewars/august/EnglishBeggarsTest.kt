@@ -80,6 +80,8 @@ class EnglishBeggarsTest {
     private fun hashMapSolution(values: List<Int>, n: Int): List<Int> {
         val result = hashMapOf<Int, Int>()
 
+        if (n == 0) return emptyList()
+
         for (i in 0 until n) result[i] = 0
 
         values.forEachIndexed { index, v ->

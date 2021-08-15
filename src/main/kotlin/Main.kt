@@ -1,4 +1,7 @@
 fun main() {
-    val s = readLine()!!.first()
-    print(s.isDigit().and(s != '0').or(s.isUpperCase()))
+    val array = charArrayOf('!', '@', '#', '$')
+
+    println(array[array.size - 1])
+    println(array[array.lastIndex])
+    println(array.last())
 }
