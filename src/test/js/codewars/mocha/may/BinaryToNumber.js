@@ -1,7 +1,7 @@
 describe("Binary array to number", () => {
 
   it('My solution', () => {
-    // Add desribtion and testion scenarios
+    // Add description and testing scenarios
     // console.log(binaryArrayToNumber([1, 0, 0, 1]), 9);
     // console.log(binaryArrayToNumber([0, 0, 1, 0]), 2);
     // console.log(binaryArrayToNumber([1, 1, 1, 1]), 15);

@@ -57,6 +57,11 @@ class EnglishBeggarsTest {
     }
 
     @Test
+    fun `only one beggar with oneLiner`() {
+        assertEquals(listOf(15), oneLiner(listOf(1, 2, 3, 4, 5), 1))
+    }
+
+    @Test
     fun `six beggars with oneLiner`() {
         assertEquals(listOf(1, 2, 3, 4, 5, 0), oneLiner(listOf(1, 2, 3, 4, 5), 6))
     }
@@ -64,12 +69,10 @@ class EnglishBeggarsTest {
     private fun beggars(values: List<Int>, n: Int): List<Int> {
         val result = List(n) { 0 }.toMutableList()
 
-        for (beg in 1..n) {
-            val begg = beg - 1
-
+        for (beg in 0 until n) {
             values.forEachIndexed { index, v ->
-                if ((index == begg) || (index % n == begg)) {
-                    result[begg] = result[begg] + v
+                if ((index == beg) || (index % n == beg)) {
+                    result[beg] = result[beg] + v
                 }
             }
         }
@@ -98,7 +101,7 @@ class EnglishBeggarsTest {
 
     private fun oneLiner(values: List<Int>, n: Int): List<Int> =
         List(n) {
-            values.filterIndexed { i, v -> i % n == it }
+            values.filterIndexed { i, _ -> i % n == it }
                 .sum()
         }
 }

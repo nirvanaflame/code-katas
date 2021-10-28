@@ -1,7 +1,7 @@
 describe("Binary addition", () => {
 
   it('My solution', () => {
-    // Add desribtion and testion scenarios
+    // Add description and testing scenarios
     // console.log(addBinary(1, 2), "11");
     // console.log(addBinary(51, 12), "111111");
     // console.log(addBinary(10, 90), "1100100");

@@ -21,19 +21,19 @@ describe("Categorize new members", () => {
     // ]), ['Senior', 'Open', 'Open', 'Open'])
   })
   it('Best from codewars', () => {
-    // console.log(openOrSeniorWithDesctruction([
+    // console.log(openOrSeniorWithDestruction([
     //   [45, 12],
     //   [55, 21],
     //   [19, -2],
     //   [104, 20]
     // ]), ['Open', 'Senior', 'Open', 'Senior'])
-    // console.log(openOrSeniorWithDesctruction([
+    // console.log(openOrSeniorWithDestruction([
     //   [3, 12],
     //   [55, 1],
     //   [91, -2],
     //   [54, 23]
     // ]), ['Open', 'Open', 'Open', 'Open'])
-    // console.log(openOrSeniorWithDesctruction([
+    // console.log(openOrSeniorWithDestruction([
     //   [59, 12],
     //   [55, -1],
     //   [12, -2],
@@ -51,6 +51,6 @@ function openOrSenior(data) {
   })
 }
 
-function openOrSeniorWithDesctruction(data) {
+function openOrSeniorWithDestruction(data) {
   return data.map(([age, rank]) => age >= 55 && rank > 7 ? 'Senior' : 'Open')
 }
