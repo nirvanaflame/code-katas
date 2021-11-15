@@ -12,6 +12,12 @@ repositories {
     gradlePluginPortal()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 dependencies {
     // JAVA test
     testImplementation 'org.assertj:assertj-core:3.21.0'
