@@ -3,31 +3,37 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI
-
+name: Build and Test
 on: [ push ]
 
 jobs:
-  build:
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set up JDK 15
-        uses: actions/setup-java@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          java-version: '15'
-          distribution: 'adopt-hotspot'
+          java-version: '17'
+          distribution: 'temurin'
 
       - name: Gradle Wrapper Validation
-        uses: gradle/wrapper-validation-action@v1.0.4
+        uses: gradle/wrapper-validation-action@v1
 
       - name: Build with Gradle
         run: ./gradlew build
 
+  publish-test-results:
+    name: "Publish Unit Tests Results"
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
         with:
-          files: build/test-results/**/TEST*.xml
+          files: "build/test-results/**/*Test.xml"
