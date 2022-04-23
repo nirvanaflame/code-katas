@@ -1,9 +1,8 @@
 package codewars.one.april;
 
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.jupiter.api.Test;
 
 class VowelCountTest {
 
@@ -30,8 +29,8 @@ class VowelCountTest {
   /**
    * (?i)[^aeiou] (?i) - starts case-insensitive mode (?-i) - turns off case-insensitive mode
    * [^aeiou] - Negated set -
-   * <p>
-   * So All that is not in set remove
+   *
+   * <p>So All that is not in set remove
    */
   private int countVowelsClever(String input) {
     return input.replaceAll("(?i)[^aeiou]", "").length();

@@ -14,87 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TuringTest {
 
-    @Test
-    void test() {
-/*
-        String[] ops = {"5", "2", "C", "D", "+"};
-        Arrays.sort(ops);*/
-        String sad = "([]){}";
-        char[] chars = sad.toCharArray();
-
-        assertTrue(isValid(chars));
-
-        // assertEquals(27, callPoint(ops));
-    }
-
-    private boolean isValid(char[] chars) {
-        LinkedList<Character> list = new LinkedList<>();
-        for (char sym : chars) {
-            switch (sym) {
-                case '{', '[', '(' -> list.add(sym);
-                case '}', ']', ')' -> {
-                    if (!isClosed(list.removeLast(), sym)) return false;
-                }
-            }
-        }
-        return list.isEmpty();
-    }
-
-    private boolean isClosed(char prev, char sym) {
-        return switch (prev) {
-            case '(' -> sym == ')';
-            case '[' -> sym == ']';
-            case '{' -> sym == '}';
-            default -> false;
-        };
-    }
-
-    private int callPoint(String[] ops) {
-        int total = 0;
-        int prev = 0;
-        for (String op : ops) {
-            if (Character.isDigit(op.toCharArray()[0])) {
-                Integer value = Integer.getInteger(op);
-                prev = value;
-                total += value;
-            } else if (op.equals("C")) {
-                prev = total;
-                total -= prev;
-            } else if (op.equals("D")) {
-                prev = total;
-                total *= 2;
-            } else if (op.equals("+")) {
-
-            }
-        }
-        return 0;
-    }
-
-
-    @Test
-    void testPattern() {
-        boolean isValid = validParentheses(")(())");
-
-        assertFalse(isValid);
-    }
-
-    @Test
-    void testPatterns() {
-        boolean isValid = validParentheses("(p{}p[])");
-
-        assertTrue(isValid);
-    }
-
-
-    public boolean validParentheses(String parens) {
-        try {
-            Pattern.compile(parens.replaceAll("[^()]", ""));
-            return true;
-        } catch (PatternSyntaxException e) {
-            return false;
-        }
-    }
-
     public static void main(String[] args) {
 
         String a = "abbcd";
@@ -166,7 +85,6 @@ public class TuringTest {
         return result;
     }
 
-
     public static int[] rotate2(int[] nums, int k) {
 
         int length = nums.length;
@@ -196,6 +114,85 @@ public class TuringTest {
             shift--;
         }
         return inArr;
+    }
+
+    @Test
+    void test() {
+/*
+        String[] ops = {"5", "2", "C", "D", "+"};
+        Arrays.sort(ops);*/
+        String sad = "([]){}";
+        char[] chars = sad.toCharArray();
+
+        assertTrue(isValid(chars));
+
+        // assertEquals(27, callPoint(ops));
+    }
+
+    private boolean isValid(char[] chars) {
+        LinkedList<Character> list = new LinkedList<>();
+        for (char sym : chars) {
+            switch (sym) {
+                case '{', '[', '(' -> list.add(sym);
+                case '}', ']', ')' -> {
+                    if (!isClosed(list.removeLast(), sym)) return false;
+                }
+            }
+        }
+        return list.isEmpty();
+    }
+
+    private boolean isClosed(char prev, char sym) {
+        return switch (prev) {
+            case '(' -> sym == ')';
+            case '[' -> sym == ']';
+            case '{' -> sym == '}';
+            default -> false;
+        };
+    }
+
+    private int callPoint(String[] ops) {
+        int total = 0;
+        int prev = 0;
+        for (String op : ops) {
+            if (Character.isDigit(op.toCharArray()[0])) {
+                Integer value = Integer.getInteger(op);
+                prev = value;
+                total += value;
+            } else if (op.equals("C")) {
+                prev = total;
+                total -= prev;
+            } else if (op.equals("D")) {
+                prev = total;
+                total *= 2;
+            } else if (op.equals("+")) {
+
+            }
+        }
+        return 0;
+    }
+
+    @Test
+    void testPattern() {
+        boolean isValid = validParentheses(")(())");
+
+        assertFalse(isValid);
+    }
+
+    @Test
+    void testPatterns() {
+        boolean isValid = validParentheses("(p{}p[])");
+
+        assertTrue(isValid);
+    }
+
+    public boolean validParentheses(String parens) {
+        try {
+            Pattern.compile(parens.replaceAll("[^()]", ""));
+            return true;
+        } catch (PatternSyntaxException e) {
+            return false;
+        }
     }
 }
 

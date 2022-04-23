@@ -1,15 +1,21 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Disabled("Not ready")
 class DragonsCurveTest {
+
+  // Make the function; map the chars to Strings
+  // a -> aRbFR, b -> LFaLb, otherwise -> itself
+  private final IntFunction<String> mapFunction =
+      (it) -> it == 'a' ? "aRbFR" : it == 'b' ? "LFaLB" : Character.toString(it);
 
   @Test
   void callZeroTimes() {
@@ -31,10 +37,6 @@ class DragonsCurveTest {
     assertThat(createCurve(3)).isEqualTo("FRFRRLFLFRRLFRFRLLFLFR");
   }
 
-  //Make the function; map the chars to Strings
-  //a -> aRbFR, b -> LFaLb, otherwise -> itself
-  private final IntFunction<String> mapFunction = (it) -> it == 'a' ? "aRbFR" : it == 'b' ? "LFaLB" : Character.toString(it);
-
   /**
    * Make the curve; stream the chars repeatedly (starting with Fa) through the mapFunction n times
    * Then remove the a and b (createFilter function is useful for that)
@@ -43,11 +45,15 @@ class DragonsCurveTest {
     if (n == 0) {
       return "F";
     }
-    StringBuilder collect = new StringBuilder("Fa".chars().mapToObj(mapFunction).collect(Collectors.joining()));
+    StringBuilder collect =
+        new StringBuilder("Fa".chars().mapToObj(mapFunction).collect(Collectors.joining()));
 
     for (int i = 1; i < n; i++) {
       collect.append(
-          collect.chars().peek(it -> System.err.println("" + it + " -< " + Character.toString(it))).mapToObj(mapFunction)
+          collect
+              .chars()
+              .peek(it -> System.err.println("" + it + " -< " + Character.toString(it)))
+              .mapToObj(mapFunction)
               .collect(Collectors.joining()));
       System.out.println("Times: " + i + "/" + n + " -> collect: " + collect);
     }
@@ -63,9 +69,7 @@ class DragonsCurveTest {
     return curve.chars().filter(createFilter(c, true)).count();
   }
 
-  /**
-   * Create a predicate to filter the specified char; keep or remove based on keep variable
-   */
+  /** Create a predicate to filter the specified char; keep or remove based on keep variable */
   public IntPredicate createFilter(char filterWhat, boolean keep) {
     return value -> keep == (value == filterWhat);
   }

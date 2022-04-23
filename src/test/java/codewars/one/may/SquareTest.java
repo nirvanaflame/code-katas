@@ -1,10 +1,11 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SquareTest {
 
@@ -30,13 +31,8 @@ class SquareTest {
 
   boolean square(int i) {
     BigDecimal x = BigDecimal.valueOf(i);
-    return i == 0 ||
-        i > 0 &&
-            x.sqrt(MathContext.DECIMAL32)
-                .pow(2)
-                .equals(x);
+    return i == 0 || i > 0 && x.sqrt(MathContext.DECIMAL32).pow(2).equals(x);
   }
-
 
   @Test
   void shouldReturnIsSquare() {

@@ -1,9 +1,10 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SumOfNumbersTest {
 
@@ -26,10 +27,8 @@ class SumOfNumbersTest {
       max = b;
       min = a;
     }
-    return IntStream.rangeClosed(min, max)
-        .sum();
+    return IntStream.rangeClosed(min, max).sum();
   }
-
 
   @Test
   void testGetSumWithMath() {
@@ -37,10 +36,8 @@ class SumOfNumbersTest {
   }
 
   int getSumMath(int a, int b) {
-    return IntStream.rangeClosed(Math.min(a, b), Math.max(a, b))
-        .sum();
+    return IntStream.rangeClosed(Math.min(a, b), Math.max(a, b)).sum();
   }
-
 
   @Test
   void testGetSumWithMathExpression() {

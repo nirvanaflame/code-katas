@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TechInterviewQuestion {
-
+public class TechInterviewQuestionTest {
     @Test
     @Disabled
     void test() {
@@ -18,8 +17,7 @@ public class TechInterviewQuestion {
         System.out.println(formatText(str, 20));
     }
 
-
-    static String formatText(String text, int width) {
+    String formatText(String text, int width) {
         String[] words = text.split(" ");
 
         List<String> list = new ArrayList<>();
@@ -40,7 +38,7 @@ public class TechInterviewQuestion {
         return sb.toString();
     }
 
-    private static String addSpaces(List<String> list, int width) {
+    String addSpaces(List<String> list, int width) {
 
         return null;
     }

@@ -1,10 +1,11 @@
 package codingame;
 
-import static java.lang.Math.abs;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import org.junit.jupiter.api.Test;
+
+import static java.lang.Math.abs;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ClosestToZeroTest {
 
@@ -26,15 +27,17 @@ class ClosestToZeroTest {
   private int closestToZero(int... n) {
     return Arrays.stream(n)
         .boxed()
-        .sorted((a, b) -> {
-          boolean notEqual = abs(a) != abs(b);
-          int absMinus = abs(a) - abs(b);
-          int minusReversed = b - a;
-          int base = notEqual ? absMinus : minusReversed;
-          System.out.println("a = " + a + ", b = " + b);
-          System.out.println(notEqual + " ? " + absMinus + " : " + minusReversed + " _> " + base);
-          return base;
-        })
+        .sorted(
+            (a, b) -> {
+              boolean notEqual = abs(a) != abs(b);
+              int absMinus = abs(a) - abs(b);
+              int minusReversed = b - a;
+              int base = notEqual ? absMinus : minusReversed;
+              System.out.println("a = " + a + ", b = " + b);
+              System.out.println(
+                  notEqual + " ? " + absMinus + " : " + minusReversed + " _> " + base);
+              return base;
+            })
         .peek(System.out::println)
         .iterator()
         .next();

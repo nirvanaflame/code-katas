@@ -1,10 +1,11 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class JadenCastingStringTest {
 
@@ -29,15 +30,10 @@ class JadenCastingStringTest {
       return null;
     }
 
-    return Arrays.stream(s.split(" "))
-        .map(this::capitalize)
-        .collect(Collectors.joining(" "));
+    return Arrays.stream(s.split(" ")).map(this::capitalize).collect(Collectors.joining(" "));
   }
 
   String capitalize(String str) {
-    return String.valueOf(str.charAt(0))
-        .toUpperCase()
-        + str.substring(1);
+    return String.valueOf(str.charAt(0)).toUpperCase() + str.substring(1);
   }
-
 }

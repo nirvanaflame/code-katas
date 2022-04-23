@@ -1,11 +1,12 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.IntFunction;
 import java.util.function.IntUnaryOperator;
 import java.util.function.ToIntFunction;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FunctionalTest {
 

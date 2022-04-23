@@ -1,9 +1,10 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class IsogramsTest {
 
@@ -23,11 +24,7 @@ class IsogramsTest {
   }
 
   boolean isgoram(String s) {
-    return s.length() == s.toLowerCase()
-        .chars()
-        .boxed()
-        .collect(Collectors.toSet())
-        .size();
+    return s.length() == s.toLowerCase().chars().boxed().collect(Collectors.toSet()).size();
   }
 
   @Test
@@ -36,10 +33,6 @@ class IsogramsTest {
   }
 
   boolean isgoramSimple(String s) {
-    return s.length() == s.toLowerCase()
-        .chars()
-        .boxed()
-        .distinct()
-        .count();
+    return s.length() == s.toLowerCase().chars().boxed().distinct().count();
   }
 }

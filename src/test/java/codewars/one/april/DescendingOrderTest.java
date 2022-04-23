@@ -1,10 +1,11 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class DescendingOrderTest {
 
@@ -20,16 +21,15 @@ class DescendingOrderTest {
 
   private int sortDesc(int num) {
     return Integer.parseInt(
-        String.valueOf(num).chars()
+        String.valueOf(num)
+            .chars()
             .map(Character::getNumericValue)
             .boxed()
             .sorted(Comparator.reverseOrder())
             .mapToInt(Integer::intValue)
             .mapToObj(String::valueOf)
-            .collect(Collectors.joining())
-    );
+            .collect(Collectors.joining()));
   }
-
 
   @Test
   void shouldSortDescCleverSimple() {
@@ -43,10 +43,10 @@ class DescendingOrderTest {
 
   private int cleverSolution(int num) {
     return Integer.parseInt(
-        String.valueOf(num).chars()
+        String.valueOf(num)
+            .chars()
             .mapToObj(it -> String.valueOf(Character.getNumericValue(it)))
             .sorted(Comparator.reverseOrder())
-            .collect(Collectors.joining())
-    );
+            .collect(Collectors.joining()));
   }
 }

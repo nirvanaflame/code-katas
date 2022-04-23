@@ -1,9 +1,10 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SquareDigitsTest {
 
@@ -32,12 +33,12 @@ class SquareDigitsTest {
   }
 
   private int squareDigitsFunctional(int n) {
-    return Integer.parseInt(String.valueOf(n)
-        .chars()
-        .map(Character::getNumericValue)
-        .map(it -> it * it)
-        .mapToObj(String::valueOf)
-        .collect(Collectors.joining())
-    );
+    return Integer.parseInt(
+        String.valueOf(n)
+            .chars()
+            .map(Character::getNumericValue)
+            .map(it -> it * it)
+            .mapToObj(String::valueOf)
+            .collect(Collectors.joining()));
   }
 }

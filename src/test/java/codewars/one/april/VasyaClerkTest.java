@@ -1,8 +1,8 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class VasyaClerkTest {
 
@@ -11,15 +11,15 @@ class VasyaClerkTest {
 
   @Test
   void couldExchangeYes() {
-    assertThat(canSellTickets(new int[]{25, 25, 50})).isEqualTo("YES");
-    assertThat(canSellTickets(new int[]{25, 25, 50, 100})).isEqualTo("YES");
-    assertThat(canSellTickets(new int[]{25, 25, 25, 25, 50, 100, 50})).isEqualTo("YES");
+    assertThat(canSellTickets(new int[] {25, 25, 50})).isEqualTo("YES");
+    assertThat(canSellTickets(new int[] {25, 25, 50, 100})).isEqualTo("YES");
+    assertThat(canSellTickets(new int[] {25, 25, 25, 25, 50, 100, 50})).isEqualTo("YES");
   }
 
   @Test
   void couldExchangeNo() {
     assertThat(
-        canSellTickets(new int[]{25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100}))
+            canSellTickets(new int[] {25, 25, 25, 25, 25, 25, 25, 50, 50, 50, 100, 100, 100, 100}))
         .isEqualTo("NO");
   }
 

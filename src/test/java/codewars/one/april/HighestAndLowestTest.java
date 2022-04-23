@@ -1,11 +1,12 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class HighestAndLowestTest {
 
@@ -22,9 +23,10 @@ class HighestAndLowestTest {
   public String highAndLow(String numbers) {
     String[] arr = numbers.split("\\s");
 
-    IntSummaryStatistics stats = Arrays.stream(arr)
-        .map(Integer::valueOf)
-        .collect(Collectors.summarizingInt(Integer::intValue));
+    IntSummaryStatistics stats =
+        Arrays.stream(arr)
+            .map(Integer::valueOf)
+            .collect(Collectors.summarizingInt(Integer::intValue));
 
     return stats.getMax() + " " + stats.getMin();
   }
@@ -42,11 +44,9 @@ class HighestAndLowestTest {
   private String highAndLowAlternative(String s) {
     String[] arr = s.split("\\s");
 
-    IntSummaryStatistics statistics = Arrays.stream(arr)
-        .mapToInt(Integer::parseInt)
-        .summaryStatistics();
+    IntSummaryStatistics statistics =
+        Arrays.stream(arr).mapToInt(Integer::parseInt).summaryStatistics();
 
     return statistics.getMax() + " " + statistics.getMin();
   }
-
 }

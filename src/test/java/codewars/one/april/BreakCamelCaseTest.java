@@ -1,9 +1,10 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BreakCamelCaseTest {
 
@@ -35,6 +36,7 @@ class BreakCamelCaseTest {
   private String camelCase(String str) {
     String[] split = str.split("(?=[A-Z])");
     return Arrays.stream(split)
-        .reduce("", (partialString, element) -> partialString + " ".concat(element)).trim();
+        .reduce("", (partialString, element) -> partialString + " ".concat(element))
+        .trim();
   }
 }

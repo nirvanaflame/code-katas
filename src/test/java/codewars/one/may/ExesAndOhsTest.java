@@ -1,8 +1,8 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ExesAndOhsTest {
 
@@ -13,8 +13,6 @@ class ExesAndOhsTest {
   }
 
   boolean getXO(String s) {
-    return s.replaceAll("(?i)[^x]", "")
-               .length() == s.replaceAll("(?i)[^o]", "")
-               .length();
+    return s.replaceAll("(?i)[^x]", "").length() == s.replaceAll("(?i)[^o]", "").length();
   }
 }

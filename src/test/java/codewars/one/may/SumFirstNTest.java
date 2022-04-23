@@ -1,11 +1,12 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Disabled("Test fails because of different Locales")
 class SumFirstNTest {

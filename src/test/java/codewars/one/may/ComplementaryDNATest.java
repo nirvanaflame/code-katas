@@ -1,9 +1,10 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ComplementaryDNATest {
 
@@ -14,7 +15,10 @@ class ComplementaryDNATest {
   }
 
   private String makeComplement(String str) {
-    return str.chars().mapToObj(this::complement).map(Character::toString).collect(Collectors.joining());
+    return str.chars()
+        .mapToObj(this::complement)
+        .map(Character::toString)
+        .collect(Collectors.joining());
   }
 
   private int complement(int it) {
@@ -32,6 +36,3 @@ class ComplementaryDNATest {
     }
   }
 }
-
-
-

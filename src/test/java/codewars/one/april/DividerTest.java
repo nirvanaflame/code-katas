@@ -1,9 +1,10 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class DividerTest {
 
@@ -20,7 +21,6 @@ class DividerTest {
   @Test
   void twelveTest() {
     assertThat(FindDivisor.numberOfDivisors(12)).isEqualTo(6);
-
   }
 
   @Test
@@ -44,8 +44,7 @@ class DividerTest {
     }
 
     public static long numberOfDivisorsFunctional(int n) {
-      return IntStream.range(1, n + 1)
-          .reduce(0, (acc, x) -> n % x == 0 ? acc + 1 : acc);
+      return IntStream.range(1, n + 1).reduce(0, (acc, x) -> n % x == 0 ? acc + 1 : acc);
     }
   }
 }

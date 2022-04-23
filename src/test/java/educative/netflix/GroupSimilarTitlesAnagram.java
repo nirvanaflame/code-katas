@@ -6,62 +6,59 @@ import java.util.*;
 
 public class GroupSimilarTitlesAnagram {
 
-    private static final int[] count = new int[26];
+  private static final int[] count = new int[26];
 
-    public static Map<String, List<String>> groupTitles(String[] titles) {
-        if (titles.length == 0)
-            return new HashMap<>();
+  public static Map<String, List<String>> groupTitles(String[] titles) {
+    if (titles.length == 0) return new HashMap<>();
 
-        Map<String, List<String>> anagrams = new HashMap<>();
+    Map<String, List<String>> anagrams = new HashMap<>();
 
-        for (String title : titles) {
+    for (String title : titles) {
 
-            System.out.println(title);
-            String key = createKey(title);
-            System.out.println(key);
+      System.out.println(title);
+      String key = createKey(title);
+      System.out.println(key);
 
-            if (!anagrams.containsKey(key))
-                anagrams.put(key, new ArrayList<>());
+      if (!anagrams.containsKey(key)) anagrams.put(key, new ArrayList<>());
 
-            anagrams.get(key).add(title);
-        }
-
-        return anagrams;
+      anagrams.get(key).add(title);
     }
 
-    @NotNull
-    private static String createKey(String str) {
-        Arrays.fill(count, 0);
+    return anagrams;
+  }
 
-        for (char c : str.toCharArray()) {
-            int index = c - 'a';
-            count[index]++;
-        }
+  @NotNull
+  private static String createKey(String str) {
+    Arrays.fill(count, 0);
 
-        StringBuilder hashKey = new StringBuilder();
-        for (int i = 0; i < 26; i++) {
-            hashKey.append('#');
-            hashKey.append(count[i]);
-        }
-
-        return hashKey.toString();
+    for (char c : str.toCharArray()) {
+      int index = c - 'a';
+      count[index]++;
     }
 
-    private static List<String> searchTitle(Map<String, List<String>> gt, String query) {
-        return gt.getOrDefault(createKey(query), List.of(""));
+    StringBuilder hashKey = new StringBuilder();
+    for (int i = 0; i < 26; i++) {
+      hashKey.append('#');
+      hashKey.append(count[i]);
     }
 
-    public static void main(String[] args) {
-        String[] titles = {"duel", "dule", "speed", "deul", "cars"};
+    return hashKey.toString();
+  }
 
-        Map<String, List<String>> gt = groupTitles(titles);
-        String query = "spede";
+  private static List<String> searchTitle(Map<String, List<String>> gt, String query) {
+    return gt.getOrDefault(createKey(query), List.of(""));
+  }
 
-        List<String> anagrams = searchTitle(gt, query);
+  public static void main(String[] args) {
+    String[] titles = {"duel", "dule", "speed", "deul", "cars"};
 
-        for (String a : anagrams) {
-            System.out.println("result: " + a);
-        }
+    Map<String, List<String>> gt = groupTitles(titles);
+    String query = "spede";
 
+    List<String> anagrams = searchTitle(gt, query);
+
+    for (String a : anagrams) {
+      System.out.println("result: " + a);
     }
+  }
 }

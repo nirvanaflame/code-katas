@@ -1,22 +1,22 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.function.UnaryOperator;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.util.function.UnaryOperator;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Disabled("Not finished")
 class ReducingByStepsTest {
 
   @Test
   void shouldSum() {
-    long[] a = new long[]{18, 69, -90, -78, 65, 40};
+    long[] a = new long[] {18, 69, -90, -78, 65, 40};
 
-    assertThat(Operation.reduceArray(null, a, a[0])).isEqualTo(
-        new long[]{18, 18, -90, -90, -90, -90});
+    assertThat(Operation.reduceArray(null, a, a[0]))
+        .isEqualTo(new long[] {18, 18, -90, -90, -90, -90});
   }
-
 
   static class Operation {
 

@@ -1,9 +1,10 @@
 package codewars.one.may;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FactorialTest {
 
@@ -30,8 +31,7 @@ class FactorialTest {
   }
 
   int factStream(int n) {
-    return IntStream.rangeClosed(1, n)
-        .reduce(1, (acc, each) -> acc * each);
+    return IntStream.rangeClosed(1, n).reduce(1, (acc, each) -> acc * each);
   }
 
   int factFor(int n) {

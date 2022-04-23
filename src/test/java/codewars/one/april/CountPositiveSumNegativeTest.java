@@ -1,17 +1,18 @@
 package codewars.one.april;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CountPositiveSumNegativeTest {
 
   @Test
   void shouldReturnCountPositiveSumNegative() {
     assertThat(
-        countPositiveSumNegative(new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
-        .isEqualTo(new int[]{8, -50});
+            countPositiveSumNegative(new int[] {0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
+        .isEqualTo(new int[] {8, -50});
   }
 
   @Test
@@ -20,7 +21,8 @@ class CountPositiveSumNegativeTest {
   }
 
   private int[] countPositiveSumNegative(int[] input) {
-    return isArrayNotEmpty(input) ? new int[]{countPositive(input), sumNegative(input)}
+    return isArrayNotEmpty(input)
+        ? new int[] {countPositive(input), sumNegative(input)}
         : new int[0];
   }
 
@@ -39,13 +41,14 @@ class CountPositiveSumNegativeTest {
   @Test
   void shouldReturnCountPositiveSumNegativeSimple() {
     assertThat(
-        countPositiveSumNegativeSimple(
-            new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
-        .isEqualTo(new int[]{8, -50});
+            countPositiveSumNegativeSimple(
+                new int[] {0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
+        .isEqualTo(new int[] {8, -50});
   }
 
   private int[] countPositiveSumNegativeSimple(int[] input) {
-    return isArrayNotEmpty(input) ? new int[]{countPositive(input), sumNegativeSimple(input)}
+    return isArrayNotEmpty(input)
+        ? new int[] {countPositive(input), sumNegativeSimple(input)}
         : new int[0];
   }
 
@@ -55,18 +58,16 @@ class CountPositiveSumNegativeTest {
 
   @Test
   void theCleverestAccordingCodeWarsCommunity() {
-    assertThat(
-        countAndSumClever(
-            new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
-        .isEqualTo(new int[]{8, -50});
+    assertThat(countAndSumClever(new int[] {0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}))
+        .isEqualTo(new int[] {8, -50});
   }
 
   private int[] countAndSumClever(int[] input) {
-    return input == null || input.length == 0 ?
-        new int[0] :
-        new int[]{
-            (int) Arrays.stream(input).filter(it -> it > 0).count(),
-            Arrays.stream(input).filter(it -> it < 0).sum()
+    return input == null || input.length == 0
+        ? new int[0]
+        : new int[] {
+          (int) Arrays.stream(input).filter(it -> it > 0).count(),
+          Arrays.stream(input).filter(it -> it < 0).sum()
         };
   }
 }
