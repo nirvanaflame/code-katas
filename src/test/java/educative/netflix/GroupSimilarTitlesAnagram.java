@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class GroupSimilarTitles {
+public class GroupSimilarTitlesAnagram {
 
     private static final int[] count = new int[26];
 

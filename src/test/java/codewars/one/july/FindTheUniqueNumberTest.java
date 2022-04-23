@@ -33,8 +33,8 @@ class FindTheUniqueNumberTest {
             } else {
                 countValues.merge(v, 1, Integer::sum);
             }
-
         }
+
         return countValues.entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst().get().getKey();
     }
 }
