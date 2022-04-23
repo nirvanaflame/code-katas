@@ -1,8 +1,11 @@
+@file:Suppress("SpellCheckingInspection")
+
 package codewars.june
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
+@Suppress("SpellCheckingInspection", "SpellCheckingInspection")
 class AlternateCapitalizationTest {
 
     @Test

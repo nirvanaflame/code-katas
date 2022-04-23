@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("SpellCheckingInspection")
 class ComplementaryDNATest {
 
   @Test
@@ -22,17 +23,12 @@ class ComplementaryDNATest {
   }
 
   private int complement(int it) {
-    switch (it) {
-      case 'A':
-        return 'T';
-      case 'T':
-        return 'A';
-      case 'G':
-        return 'C';
-      case 'C':
-        return 'G';
-      default:
-        return ' ';
-    }
+    return switch (it) {
+      case 'A' -> 'T';
+      case 'T' -> 'A';
+      case 'G' -> 'C';
+      case 'C' -> 'G';
+      default -> ' ';
+    };
   }
 }

@@ -42,7 +42,7 @@ class PersistentBuggerTest {
     private fun persistence(n: Int): Int {
         var count = 0
         var number = n
-        if (n == 0) return count
+        if (n == 0) return 0
         while (number > 9) {
             count++
             println(number)

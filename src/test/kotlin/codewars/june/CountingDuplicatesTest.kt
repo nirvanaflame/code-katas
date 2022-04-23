@@ -43,5 +43,5 @@ class CountingDuplicatesTest {
             .size
     }
 
-    fun duplicateCountGroupBy(text: String) = text.groupBy(Char::lowercaseChar).count { it.value.count() > 1 }
+    private fun duplicateCountGroupBy(text: String) = text.groupBy(Char::lowercaseChar).count { it.value.count() > 1 }
 }

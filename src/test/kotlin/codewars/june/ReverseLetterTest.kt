@@ -25,5 +25,5 @@ class ReverseLetterTest {
     private fun reverseLetter(s: String) =
             s.replace(regex = "[^a-zA-Z]".toRegex(), replacement = "").reversed()
 
-    fun cleverSolution(s: String) = s.filter(Char::isLetter).reversed()
+    private fun cleverSolution(s: String) = s.filter(Char::isLetter).reversed()
 }

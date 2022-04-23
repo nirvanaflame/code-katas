@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+@SuppressWarnings("SpellCheckingInspection")
 class AlphabetSymmetryTest {
 
   private static final String alphabet = "abcdefghijklmnopqrstuvwxyz";

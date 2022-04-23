@@ -30,19 +30,19 @@ class DecodeTheMorseCodeTest {
         assertEquals("E", decodeMorseOldFashion(" . "))
     }
 
-    fun decodeMorse(code: String) =
+    private fun decodeMorse(code: String) =
             code.split(" ")
                 .joinToString("") { MorseCode[it] ?: " " }
                 .replace("(\\s)+".toRegex(), " ")
                 .trim()
 
-    fun decodeMorseWithTransform(code: String) =
+    private fun decodeMorseWithTransform(code: String) =
             code.split(" ")
                 .joinToString("", transform = MorseCode::getOrDefault)
                 .replace("(\\s)+".toRegex(), " ")
                 .trim()
 
-    fun decodeMorseOldFashion(code: String): String {
+    private fun decodeMorseOldFashion(code: String): String {
         var morseCode = ""
         code.split(" ").forEach {
             morseCode += MorseCode[it] ?: " "
@@ -53,7 +53,7 @@ class DecodeTheMorseCodeTest {
 
 object MorseCode {
 
-    val codeMap: Map<String, String> = mapOf(
+    private val codeMap: Map<String, String> = mapOf(
             ".-" to "A", "-..." to "B", "-.-." to "C", "-.." to "D",
             "." to "E", "..-." to "F", "--." to "G", "...." to "H",
             ".." to "I", ".---" to "J", "-.-" to "K", ".-.." to "L",
@@ -69,5 +69,5 @@ object MorseCode {
 
     infix fun getOrDefault(code: String) = this.getOrDefault(code, " ")
 
-    fun getOrDefault(code: String, default: String) = get(code) ?: default
+    private fun getOrDefault(code: String, default: String) = get(code) ?: default
 }

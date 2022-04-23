@@ -1,7 +1,8 @@
 package codewars.july
 
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 /**
  * Given two arrays a and b write a function comp(a, b) (orcompSame(a, b))
@@ -16,7 +17,7 @@ class SameArraysTest {
         val a1 = intArrayOf(121, 144, 19, 161, 19, 144, 19, 11)
         val a2 = intArrayOf(121, 14641, 20736, 361, 25921, 361, 20736, 361)
 
-        assertEquals(true, compareArrays(a1, a2))
+        assertTrue(compareArrays(a1, a2))
     }
 
     @Test
@@ -24,7 +25,7 @@ class SameArraysTest {
         val a1 = null
         val a2 = intArrayOf(11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19)
 
-        assertEquals(false, compareArrays(a1, a2))
+        assertFalse(compareArrays(a1, a2))
     }
 
     @Test
@@ -32,7 +33,7 @@ class SameArraysTest {
         val a1 = intArrayOf(121, 144, 19, 161, 19, 144, 19, 11)
         val a2 = null
 
-        assertEquals(false, compareArrays(a1, a2))
+        assertFalse(compareArrays(a1, a2))
     }
 
     @Test
@@ -40,7 +41,7 @@ class SameArraysTest {
         val a1 = null
         val a2 = null
 
-        assertEquals(false, compareArrays(a1, a2))
+        assertFalse(compareArrays(a1, a2))
     }
 
     @Test
@@ -48,7 +49,7 @@ class SameArraysTest {
         val a1 = intArrayOf()
         val a2 = intArrayOf(11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19)
 
-        assertEquals(false, compareArrays(a1, a2))
+        assertFalse(compareArrays(a1, a2))
     }
 
     @Test
@@ -56,7 +57,7 @@ class SameArraysTest {
         val a1 = intArrayOf(121, 144, 19, 161, 19, 144, 19, 11)
         val a2 = intArrayOf()
 
-        assertEquals(false, compareArrays(a1, a2))
+        assertFalse(compareArrays(a1, a2))
     }
 
     @Test
@@ -64,10 +65,10 @@ class SameArraysTest {
         val a1 = intArrayOf()
         val a2 = intArrayOf()
 
-        assertEquals(true, compareArrays(a1, a2))
+        assertTrue(compareArrays(a1, a2))
     }
 
-    fun compareArrays(a1: IntArray?, a2: IntArray?): Boolean {
+    private fun compareArrays(a1: IntArray?, a2: IntArray?): Boolean {
         if (a1 == null || a2 == null) return false
 
         return a1.map { it * it }.sorted() == a2.sorted()

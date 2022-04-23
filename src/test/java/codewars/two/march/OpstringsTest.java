@@ -11,21 +11,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OpstringsTest {
 
-  public static String vertMirror(String str) {
+  static String oper(Function<String, String> operator, String str) {
+    return operator.apply(str);
+  }
+
+  static String vertMirror(String str) {
     return Arrays.stream(str.split("\n"))
         .map(StringBuilder::new)
         .map(StringBuilder::reverse)
         .collect(Collectors.joining("\n"));
   }
 
-  public static String horMirror(String str) {
-    /*        String[] arr = str.split("\n");
-    StringBuilder sb = new StringBuilder();
-    for (int i = arr.length-1; i >= 0; i--) {
-        sb.append(arr[i]).append("\n");
-    }
-    return sb.toString().trim();*/
-
+  static String horMirror(String str) {
     String[] split = str.split("\n");
     int last = split.length - 1;
 
@@ -34,8 +31,13 @@ public class OpstringsTest {
         .collect(Collectors.joining("\n"));
   }
 
-  public static String oper(Function<String, String> operator, String str) {
-    return operator.apply(str);
+  static String horMirrorOld(String str) {
+    String[] arr = str.split("\n");
+    StringBuilder sb = new StringBuilder();
+    for (int i = arr.length - 1; i >= 0; i--) {
+      sb.append(arr[i]).append("\n");
+    }
+    return sb.toString().trim();
   }
 
   @Test
@@ -64,5 +66,12 @@ public class OpstringsTest {
     String actual = "njMK\ndbrZ\nLPKo\ncEYz";
     String exp = "cEYz\nLPKo\ndbrZ\nnjMK";
     assertEquals(exp, OpstringsTest.oper(OpstringsTest::horMirror, actual));
+  }
+
+  @Test
+  void shouldReturnHorizontalMirrorOld() {
+    String actual = "njMK\ndbrZ\nLPKo\ncEYz";
+    String exp = "cEYz\nLPKo\ndbrZ\nnjMK";
+    assertEquals(exp, OpstringsTest.oper(OpstringsTest::horMirrorOld, actual));
   }
 }

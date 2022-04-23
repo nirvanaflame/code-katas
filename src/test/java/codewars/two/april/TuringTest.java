@@ -1,5 +1,6 @@
 package codewars.two.april;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,27 +10,22 @@ import java.util.LinkedList;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TuringTest {
 
     public static void main(String[] args) {
-
         String a = "abbcd";
         String b = "dcbeba";
         unique(a, b);
 
         int[] rotate = rotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-
         System.out.println(Arrays.toString(rotate));
 
         int[] rotate2 = rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-
         System.out.println(Arrays.toString(rotate2));
 
         int[] shiftArr = shiftArr(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-
         System.out.println(Arrays.toString(shiftArr));
 
     }
@@ -50,16 +46,6 @@ public class TuringTest {
 
         unique.removeAll(common);
         System.out.println(unique);
-    }
-
-    private static void extracted() {
-        String s = "abcd", t = "abcdd";
-
-        String[] s1 = s.split("");
-        for (int i = 0; i < s1.length; i++) {
-
-        }
-
     }
 
     public static int[] rotate(int[] nums, int k) {
@@ -117,19 +103,15 @@ public class TuringTest {
     }
 
     @Test
-    void test() {
-/*
-        String[] ops = {"5", "2", "C", "D", "+"};
-        Arrays.sort(ops);*/
+    void returnTrueForValidParenthesis() {
         String sad = "([]){}";
         char[] chars = sad.toCharArray();
 
         assertTrue(isValid(chars));
 
-        // assertEquals(27, callPoint(ops));
     }
 
-    private boolean isValid(char[] chars) {
+    boolean isValid(char[] chars) {
         LinkedList<Character> list = new LinkedList<>();
         for (char sym : chars) {
             switch (sym) {
@@ -142,7 +124,7 @@ public class TuringTest {
         return list.isEmpty();
     }
 
-    private boolean isClosed(char prev, char sym) {
+    boolean isClosed(char prev, char sym) {
         return switch (prev) {
             case '(' -> sym == ')';
             case '[' -> sym == ']';
@@ -151,7 +133,38 @@ public class TuringTest {
         };
     }
 
-    private int callPoint(String[] ops) {
+    @Test
+    void testPattern() {
+        boolean isValid = validParentheses(")(())");
+
+        assertFalse(isValid);
+    }
+
+    @Test
+    void testPatterns() {
+        boolean isValid = validParentheses("(p{}p[])");
+
+        assertTrue(isValid);
+    }
+
+    boolean validParentheses(String parens) {
+        try {
+            Pattern.compile(parens.replaceAll("[^()]", ""));
+            return true;
+        } catch (PatternSyntaxException e) {
+            return false;
+        }
+    }
+
+    @Test
+    @Disabled("not implemented")
+    void returnValidCallPoint(){
+        String[] ops = {"5", "2", "C", "D", "+"};
+        Arrays.sort(ops);
+        assertEquals(27, callPoint(ops));
+    }
+
+    int callPoint(String[] ops) {
         int total = 0;
         int prev = 0;
         for (String op : ops) {
@@ -172,27 +185,5 @@ public class TuringTest {
         return 0;
     }
 
-    @Test
-    void testPattern() {
-        boolean isValid = validParentheses(")(())");
-
-        assertFalse(isValid);
-    }
-
-    @Test
-    void testPatterns() {
-        boolean isValid = validParentheses("(p{}p[])");
-
-        assertTrue(isValid);
-    }
-
-    public boolean validParentheses(String parens) {
-        try {
-            Pattern.compile(parens.replaceAll("[^()]", ""));
-            return true;
-        } catch (PatternSyntaxException e) {
-            return false;
-        }
-    }
 }
 

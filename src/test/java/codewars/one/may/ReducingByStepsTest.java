@@ -40,7 +40,7 @@ class ReducingByStepsTest {
       return Math.min(a, b);
     }
 
-    static long[] reduceArray(UnaryOperator f, long[] arr, long init) {
+    static long[] reduceArray(UnaryOperator<Long> f, long[] arr, long init) {
       return null;
     }
   }

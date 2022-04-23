@@ -1,3 +1,5 @@
+@file:Suppress("GrazieInspection")
+
 package codewars.july
 
 import org.junit.jupiter.api.Test

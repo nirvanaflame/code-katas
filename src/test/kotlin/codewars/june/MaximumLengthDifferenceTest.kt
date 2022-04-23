@@ -30,7 +30,7 @@ class MaximumLengthDifferenceTest {
         assertEquals(10, bestSolution(s1, s2))
     }
 
-    fun mxdiflg(a1: Array<String>, a2: Array<String>): Int {
+    private fun mxdiflg(a1: Array<String>, a2: Array<String>): Int {
         if (a1.isEmpty() || a2.isEmpty()) return -1
 
         val a1Max: Int = a1.maxByOrNull { it.length }?.length!!
@@ -40,11 +40,11 @@ class MaximumLengthDifferenceTest {
         val a2Min: Int = a2.minByOrNull { it.length }?.length!!
 
 
-        return Math.max(abs(a1Min - a2Max), abs(a1Max - a2Min))
+        return abs(a1Min - a2Max).coerceAtLeast(abs(a1Max - a2Min))
     }
 
 
-    fun bestSolution(a1: Array<String>, a2: Array<String>) =
+    private fun bestSolution(a1: Array<String>, a2: Array<String>) =
             a1.flatMap { s1 -> a2.map { s2 -> abs(s1.length - s2.length) } }
                     .maxOrNull()
 }

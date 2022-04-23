@@ -28,9 +28,9 @@ class StringToCamelCaseTest {
     }
 
     private fun bestToCamel(str: String) =
-            str.split("-", "_")
-                .mapIndexed { i, s -> if (i != 0) s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } else s }
-                .joinToString("")
+        str.split("-", "_")
+            .mapIndexed { i, s -> if (i != 0) s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } else s }
+            .joinToString("")
 
 
     private fun toCamel(str: String): String {
@@ -39,7 +39,11 @@ class StringToCamelCaseTest {
         var result = ""
         str.split("-", "_")
             .forEachIndexed { i, s ->
-                result += if (i == 0 && s[0].isLowerCase()) s else s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                result += if (i == 0 && s[0].isLowerCase()) s else s.replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase(
+                        Locale.getDefault()
+                    ) else it.toString()
+                }
             }
 
         return result
@@ -47,22 +51,26 @@ class StringToCamelCaseTest {
 
 
     private fun toCamelCaseFirstTry(str: String): String =
-            str.split("-", "_")
-                .joinToString(separator = "") { s ->
-                    when {
-                        s.length == 1 -> s.uppercase()
-                        s in str.substring(0..s.length) -> s.replaceFirstChar { c -> c.lowercase() }
-                        else -> s.replaceFirstChar { c ->
-                            if (c.isLowerCase()) c.titlecase(Locale.getDefault()) else c.toString()
-                        }
+        str.split("-", "_")
+            .joinToString(separator = "") { s ->
+                when {
+                    s.length == 1 -> s.uppercase()
+                    s in str.substring(0..s.length) -> s.replaceFirstChar { c -> c.lowercase() }
+                    else -> s.replaceFirstChar { c ->
+                        if (c.isLowerCase()) c.titlecase(Locale.getDefault()) else c.toString()
                     }
                 }
+            }
 
     private fun toCamelCaseOldCodeWars(str: String): String =
-            str.split("-", "_")
-                .joinToString(separator = "") { s ->
-                    if (s in str.substring(0..s.length) && s.length > 1) s.lowercase() else s.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        str.split("-", "_")
+            .joinToString(separator = "") { s ->
+                if (s in str.substring(0..s.length) && s.length > 1) s.lowercase() else s.replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase(
+                        Locale.getDefault()
+                    ) else it.toString()
                 }
+            }
 }
 
 
