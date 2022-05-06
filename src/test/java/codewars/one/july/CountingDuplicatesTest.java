@@ -51,13 +51,9 @@ class CountingDuplicatesTest {
     Map<String, Integer> map = new HashMap<>();
 
     for (String s : str.toLowerCase().split("")) {
-      if (map.get(s) == null) {
-        map.put(s, 1);
-      } else {
-        map.merge(s, 1, Integer::sum);
-      }
+      map.merge(s, 1, Integer::sum);
     }
 
-    return (int) map.values().stream().filter(it -> it >= 2).count();
+    return (int) map.values().stream().filter(it -> it > 1).count();
   }
 }
