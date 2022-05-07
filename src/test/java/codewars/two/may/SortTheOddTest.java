@@ -2,6 +2,8 @@ package codewars.two.may;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class SortTheOddTest {
@@ -24,7 +26,12 @@ class SortTheOddTest {
   }
 
 
-  int[] sortArray(int[] ints) {
-    return null;
+  int[] sortArray(int[] a) {
+    int[] odds = Arrays.stream(a).filter(it -> it % 2 == 1).sorted().toArray();
+
+    for (int i =0, j = 0; i < a.length; i++)
+      a[i] = a[i] % 2 == 0 ? a[i] : odds[j++];
+
+    return a;
   }
 }
