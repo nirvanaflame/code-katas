@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DuplicateEncoderTest {
+class DuplicateEncoderTest {
 
   @Test
   void testDuplicateEncoder() {
@@ -25,7 +25,7 @@ public class DuplicateEncoderTest {
     assertEquals("))((", encode("(( @"));
   }
 
-  private String encode(String str) {
+  String encode(String str) {
     LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
 
     String[] split = str.toLowerCase().split("");

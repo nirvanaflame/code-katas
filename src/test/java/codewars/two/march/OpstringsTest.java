@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OpstringsTest {
+class OpstringsTest {
 
   static String oper(Function<String, String> operator, String str) {
     return operator.apply(str);

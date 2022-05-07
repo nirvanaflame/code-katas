@@ -4,16 +4,16 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
 
-public class IsLongPressedName {
+class IsLongPressedName {
 
-  public static void main(String[] args) {
+  static void main(String[] args) {
 
     boolean longPressedName = isLongPressedName("saeed", "ssaaedd");
     // boolean longPressedName = isLongPressedName("a", "b");
     System.out.println(longPressedName);
   }
 
-  public static boolean isLongPressedName(String name, String typed) {
+  static boolean isLongPressedName(String name, String typed) {
     List<String> nl = Arrays.stream(name.split("")).toList();
     ArrayDeque<String> tl = new ArrayDeque<>(Arrays.stream(typed.split("")).toList());
 

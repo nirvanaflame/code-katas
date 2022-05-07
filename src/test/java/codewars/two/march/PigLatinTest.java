@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PigLatinTest {
+class PigLatinTest {
 
   @Test
   void test() {
@@ -30,7 +30,7 @@ public class PigLatinTest {
     assertEquals("oratay oay oresmay !", pigItFunctional("tora o mores !"));
   }
 
-  public String pigIt(String str) {
+  String pigIt(String str) {
     String[] phrase = str.split(" ");
 
     StringBuilder sb = new StringBuilder();
@@ -52,11 +52,11 @@ public class PigLatinTest {
     return sb.toString().trim();
   }
 
-  public String pigItBest(String str) {
+  String pigItBest(String str) {
     return str.replaceAll("(\\w)(\\w*)", "$2$1ay");
   }
 
-  public String pigItFunctional(String str) {
+  String pigItFunctional(String str) {
     return Arrays.stream(str.trim().split(" "))
         .map(
             v -> v.matches("[a-zA-Z]+") ? v.substring(1).concat(v.substring(0, 1)).concat("ay") : v)

@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RecursionTest {
+class RecursionTest {
 
   @Test
   void shouldSum() {

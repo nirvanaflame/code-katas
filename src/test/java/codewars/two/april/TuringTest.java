@@ -12,9 +12,9 @@ import java.util.regex.PatternSyntaxException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TuringTest {
+class TuringTest {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         String a = "abbcd";
         String b = "dcbeba";
         unique(a, b);
@@ -30,7 +30,7 @@ public class TuringTest {
 
     }
 
-    public static void unique(String a, String b) {
+    static void unique(String a, String b) {
         HashSet<Character> unique = new HashSet<>();
         HashSet<Character> common = new HashSet<>();
 
@@ -48,7 +48,7 @@ public class TuringTest {
         System.out.println(unique);
     }
 
-    public static int[] rotate(int[] nums, int k) {
+    static int[] rotate(int[] nums, int k) {
         int length = nums.length;
         int[] result = new int[length];
 
@@ -71,7 +71,7 @@ public class TuringTest {
         return result;
     }
 
-    public static int[] rotate2(int[] nums, int k) {
+    static int[] rotate2(int[] nums, int k) {
 
         int length = nums.length;
         int start = length - k;
@@ -89,7 +89,7 @@ public class TuringTest {
         return list.stream().mapToInt(i -> i).toArray();
     }
 
-    public static int[] shiftArr(int[] inArr, int shift) {
+    static int[] shiftArr(int[] inArr, int shift) {
         while (shift > 0) {
             int lastVar = inArr[inArr.length - 1];
             for (int counter = 0; counter < inArr.length; counter++) {

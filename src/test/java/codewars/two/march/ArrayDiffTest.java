@@ -12,35 +12,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
  * It should remove all values from list, which are present in list b keeping their order.
  * */
-public class ArrayDiffTest {
+class ArrayDiffTest {
 
   @Test
-  public void whenMatchThenRemove() {
+  void whenMatchThenRemove() {
     assertArrayEquals(new int[] {2}, arrayDiff(new int[] {1, 2}, new int[] {1}));
   }
 
   @Test
-  public void whenOneMatchThenAShouldHaveTwo() {
+  void whenOneMatchThenAShouldHaveTwo() {
     assertArrayEquals(new int[] {2, 2}, arrayDiff(new int[] {1, 2, 2}, new int[] {1}));
   }
 
   @Test
-  public void whenTwoMatchThenAOnlyOne() {
+  void whenTwoMatchThenAOnlyOne() {
     assertArrayEquals(new int[] {1}, arrayDiff(new int[] {1, 2, 2}, new int[] {2}));
   }
 
   @Test
-  public void whenEmptyBThenReturnAForResult() {
+  void whenEmptyBThenReturnAForResult() {
     assertArrayEquals(new int[] {1, 2, 2}, arrayDiff(new int[] {1, 2, 2}, new int[] {}));
   }
 
   @Test
-  public void whenEmptyAThenEmptyResult() {
+  void whenEmptyAThenEmptyResult() {
     assertArrayEquals(new int[] {}, arrayDiff(new int[] {}, new int[] {1, 2}));
   }
 
   @Test
-  public void whenRandomTestThenPass() {
+  void whenRandomTestThenPass() {
     int[] a = {
       17, 17, 5, 14, 12, 7, 14, 4, 21, 3, 9, 12, 15, 20, 0, 22, 1, 19, 8, 9, 9, 16, 6, 14, 15, 12,
       10, 11, 19, 10, 3, 16, 13, 24, 24, 22, 17, 19, 23, 21, 19, 15, 8, 6, 0, 20, 15, 3, 6, 21, 4,
@@ -56,7 +56,7 @@ public class ArrayDiffTest {
   }
 
   @Test
-  public void whenRandomTestThenPassBest() {
+  void whenRandomTestThenPassBest() {
     int[] a = {
       17, 17, 5, 14, 12, 7, 14, 4, 21, 3, 9, 12, 15, 20, 0, 22, 1, 19, 8, 9, 9, 16, 6, 14, 15, 12,
       10, 11, 19, 10, 3, 16, 13, 24, 24, 22, 17, 19, 23, 21, 19, 15, 8, 6, 0, 20, 15, 3, 6, 21, 4,

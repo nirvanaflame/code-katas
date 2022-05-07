@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class YourOrderPleaseTest {
+class YourOrderPleaseTest {
 
   @Test
   void test1() {
@@ -22,12 +22,12 @@ public class YourOrderPleaseTest {
   }
 
   @Test
-  public void test81() {
+  void test81() {
     assertThat(order8("is2 Thi1s T4est 3a")).isEqualTo("Thi1s is2 3a T4est");
   }
 
   @Test
-  public void test82() {
+  void test82() {
     assertThat(order8("4of Fo1r pe6ople g3ood th5e the2"))
         .isEqualTo("Fo1r the2 g3ood 4of th5e pe6ople");
   }

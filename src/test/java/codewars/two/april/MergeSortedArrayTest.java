@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class MergeSortedArrayTest {
+class MergeSortedArrayTest {
 
   @Test
   @Disabled

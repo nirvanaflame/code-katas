@@ -24,6 +24,7 @@ class SortTheOddTest {
   }
 
 
-  private int[] sortArray(int[] ints) {
+  int[] sortArray(int[] ints) {
+    return null;
   }
 }

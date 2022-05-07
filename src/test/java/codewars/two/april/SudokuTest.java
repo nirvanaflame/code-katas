@@ -10,9 +10,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SudokuTest {
+class SudokuTest {
 
-    public static final int[][] SUDOKU = new int[][]{
+    static final int[][] SUDOKU = new int[][]{
             {5, 3, 4, 6, 7, 8, 9, 1, 2},
             {6, 7, 2, 1, 9, 5, 3, 4, 8},
             {1, 9, 8, 3, 4, 2, 5, 6, 7},
@@ -23,7 +23,7 @@ public class SudokuTest {
             {2, 8, 7, 4, 1, 9, 6, 3, 5},
             {3, 4, 5, 2, 8, 6, 1, 7, 9}
     };
-    public static final int[][] SUB_SQUARES = new int[][]{
+    static final int[][] SUB_SQUARES = new int[][]{
             {1, 2, 3, 4, 5, 6, 7, 8, 9},
             {2, 3, 4, 5, 6, 7, 8, 9, 1},
             {3, 4, 5, 6, 7, 8, 9, 1, 2},
@@ -35,7 +35,7 @@ public class SudokuTest {
             {9, 1, 2, 3, 4, 5, 6, 7, 8}
     };
 
-    public static final int[][] EXAMPLE = new int[][]{
+    static final int[][] EXAMPLE = new int[][]{
             {5, 3, 4, 6, 7, 8, 9, 1, 2},
             {6, 7, 2, 1, 9, 5, 3, 4, 8},
             {1, 9, 8, 3, 4, 2, 5, 6, 7},
@@ -104,7 +104,7 @@ public class SudokuTest {
         assertTrue(checkWithArray(EXAMPLE));
     }
 
-    private boolean check(int[][] sudoku) {
+    boolean check(int[][] sudoku) {
         HashMap<Integer, List<Integer>> blocks = new HashMap<>();
         for (int i = 0; i < sudoku.length; i++) {
 
@@ -130,7 +130,7 @@ public class SudokuTest {
         return true;
     }
 
-    private boolean checkWithArray(int[][] sudoku) {
+    boolean checkWithArray(int[][] sudoku) {
         int[][] blocks = new int[9][9];
         for (int i = 0; i < sudoku.length; i++) {
 
@@ -154,7 +154,7 @@ public class SudokuTest {
         return true;
     }
 
-    private int calculateBucketIndex(int blockNum, int rowNum, int colNum) {
+    int calculateBucketIndex(int blockNum, int rowNum, int colNum) {
         return switch (blockNum) {
             case 0 -> 3*colNum + rowNum;
             case 1, 2 -> (3*colNum) + rowNum % (3*blockNum);
@@ -162,7 +162,7 @@ public class SudokuTest {
         };
     }
 
-    private boolean isNotSudoku(int[] array) {
+    boolean isNotSudoku(int[] array) {
         return Arrays.stream(array).distinct().sum() != 45;
     }
 }

@@ -3,9 +3,9 @@ package codewars.two.april;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenerateParenthesis {
+class GenerateParenthesis {
 
-  public static void main(String[] args) {
+  static void main(String[] args) {
     List<String> strings = generateParenthesis(3);
 
     for (String string : strings) {
