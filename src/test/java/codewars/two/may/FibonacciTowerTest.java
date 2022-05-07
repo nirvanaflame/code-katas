@@ -25,7 +25,7 @@ class FibonacciTowerTest {
 ]
   *
   * */
-  private String[] towerBuilder(int l) {
+  String[] towerBuilder(int l) {
 
     int len = l * 2 - 1;
     String[] r = new String[l];
