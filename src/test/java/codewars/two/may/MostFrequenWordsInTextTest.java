@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MostFrequenWordsInTextTest {
+class MostFrequenWordsInTextTest {
 
   @Test
-  public void sampleTests() {
+  void sampleTests() {
     assertEquals(Arrays.asList("e", "d", "a"),    top3("a a a  b  c c  d d d d  e e e e e"));
     assertEquals(Arrays.asList("e", "ddd", "aa"), top3("e e e e DDD ddd DdD: ddd ddd aa aA Aa, bb cc cC e e e"));
     assertEquals(Arrays.asList("won't", "wont"),  top3("  //wont won't won't "));
@@ -27,7 +27,7 @@ public class MostFrequenWordsInTextTest {
         "on Sundays, made away with three-quarters of his income.")));
   }
 
-  private List<String> top3(String text) {
+  List<String> top3(String text) {
     return Arrays.stream(text.toLowerCase().split("[^\\w']+"))
         .filter(s -> !s.isBlank() && !s.replaceAll("'", "").isEmpty())
         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))

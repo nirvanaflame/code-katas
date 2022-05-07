@@ -7,7 +7,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PhoneNumbersTest {
+class PhoneNumbersTest {
 
   static HashMap<String, List<String>> graph = new HashMap<>() ;
 
@@ -16,7 +16,7 @@ public class PhoneNumbersTest {
     assertEquals(31, phoneNumberGraph("0123456789 0123987654 0123987456 2365498756 2365498765"));
   }
 
-  private int phoneNumberGraph(String str) {
+  int phoneNumberGraph(String str) {
     String[] nums = str.split(" ");
     String first = initFirstBucket(nums);
 
@@ -38,14 +38,14 @@ public class PhoneNumbersTest {
   }
 
   @NotNull
-  private String findOrCreate(String num) {
+  String findOrCreate(String num) {
     String bucket = num.substring(0, 1);
     graph.computeIfAbsent(bucket, s -> new LinkedList<>());
     return bucket;
   }
 
   @NotNull
-  private String initFirstBucket(String[] nums) {
+  String initFirstBucket(String[] nums) {
     String first = nums[0];
     List<String> fList = graph.computeIfAbsent(first.substring(0, 1), s -> new LinkedList<>());
     fList.addAll(Arrays.asList(first.split("")));

@@ -6,19 +6,19 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SplitStringAsCoupleTest {
+class SplitStringAsCoupleTest {
 
   @Test
-  public void testOddString() {
+  void testOddString() {
     String s = "abcde";
     String s1 = "LovePizza";
     assertEquals("[ab, cd, e_]", Arrays.toString(splitAsCoupe(s)));
     assertEquals("[Lo, ve, Pi, zz, a_]", Arrays.toString(splitAsCoupe(s1)));
   }
 
-  private String[] splitAsCoupe(String str) {
+  String[] splitAsCoupe(String str) {
     String[] s = str.split("(?<=\\G..)");
     if (str.length() % 2 != 0) s[s.length - 1] += "_";
-    return  s;
+    return s;
   }
 }

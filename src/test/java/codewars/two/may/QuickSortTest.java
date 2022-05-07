@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class QuickSortTest {
+class QuickSortTest {
 
   @Test
   void shouldSortArray() {
@@ -18,7 +18,7 @@ public class QuickSortTest {
     return quickSort0(a).toArray();
   }
 
-  private IntStream quickSort0(int[] a) {
+  IntStream quickSort0(int[] a) {
     if (a.length < 2) return IntStream.of(a);
     int pivot = a[a.length / 2]; // recursive case
 

@@ -7,10 +7,10 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class TribinacciSequenceTest {
+class TribinacciSequenceTest {
 
   @Test
-  public void sampleTests() {
+  void sampleTests() {
     double precision = 1e-10;
     assertArrayEquals(new double []{1,1,1,3,5,9,17,31,57,105}, tribonacci(new double []{1,1,1},10), precision);
     assertArrayEquals(new double []{0,0,1,1,2,4,7,13,24,44}, tribonacci(new double []{0,0,1},10), precision);
@@ -18,14 +18,14 @@ public class TribinacciSequenceTest {
   }
 
   @Test
-  public void sampleXTests() {
+  void sampleXTests() {
     double precision = 1e-10;
     assertArrayEquals(new double []{1,1,1,3,5,9,17,31,57,105}, xbonacci(new double []{1,1,1},10), precision);
     assertArrayEquals(new double []{0,0,1,1,2,4,7,13,24,44}, xbonacci(new double []{0,0,1},10), precision);
     assertArrayEquals(new double []{0,1,1,2,4,7,13,24,44,81}, xbonacci(new double []{0,1,1},10), precision);
   }
 
-  private double[] tribonacci(double[] s, int n) {
+  double[] tribonacci(double[] s, int n) {
     if (n == 0) return new double[]{};
 
     ArrayList<Double> list = new ArrayList<>() {{
