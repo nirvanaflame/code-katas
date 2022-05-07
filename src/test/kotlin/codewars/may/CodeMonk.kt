@@ -1,9 +1,11 @@
 package codewars.may
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 
+@Disabled("Forgotten Kotlin")
 class CodeMonk {
 
     @Test
