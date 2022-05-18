@@ -10,7 +10,6 @@ import java.util.TreeMap;
 import static java.math.BigInteger.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class AlphabeticAnagramsTest {
 
   @Test
@@ -46,32 +45,6 @@ class AlphabeticAnagramsTest {
 
     return result;
   }
-
-  BigInteger listPosition0(String str) {
-    BigInteger factorial, result , count; result = factorial = count = ONE;
-
-    HashMap<Character, Integer> map = new HashMap<>();
-    for (int i = str.length() - 1; i >= 0; --i) {
-      factorial = factorial.multiply(count);
-
-      char key = str.charAt(i);
-      map.merge(key, 1, Integer::sum);
-
-      factorial = factorial.divide(BigInteger.valueOf(map.get(key)));
-
-      for (char c : map.keySet())
-        if (c < key)
-          result = result.add(
-              factorial.divide(count)
-                        .multiply(BigInteger.valueOf(map.get(c)))
-          );
-
-      count = count.add(ONE);
-    }
-
-    return result;
-  }
-
 
 }
 
