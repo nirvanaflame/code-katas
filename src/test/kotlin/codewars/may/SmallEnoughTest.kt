@@ -3,7 +3,7 @@ package codewars.may
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class SmallEnough {
+class SmallEnoughTest {
 
   @Test
   fun `Basic Tests`() {

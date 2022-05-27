@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import kotlin.math.max
 
-class StringIncrementer {
+class StringIncrementerTest {
 
   @Test
-  fun FixedTests() {
+  fun fixedTests() {
     assertEquals(incrementString("foobar000"), "foobar001")
     assertEquals(incrementString("foobar999"), "foobar1000")
     assertEquals(incrementString("foobar00999"), "foobar01000")
