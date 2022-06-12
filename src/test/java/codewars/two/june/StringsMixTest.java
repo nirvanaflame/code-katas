@@ -27,8 +27,8 @@ public class StringsMixTest {
   }
 
   public String mix(String s1, String s2) {
-    Map<String, Integer> charCountMap = countCharsWithOrder(s1);
-    Map<String, Integer> charCountMap2 = countCharsWithOrder(s2);
+    Map<String, Integer> charCountMap = countChars(s1);
+    Map<String, Integer> charCountMap2 = countChars(s2);
 
     HashSet<Unit> units = new HashSet<>();
     addToUnitsSet(charCountMap, units, "1:");
@@ -45,16 +45,17 @@ public class StringsMixTest {
   }
 
   private void addToUnitsSet(Map<String, Integer> charCountMap, HashSet<Unit> units, String prefix) {
-    charCountMap.forEach(
-        (k, v) -> {
-          Unit toAdd = new Unit(prefix, k, v);
-          if (!units.add(toAdd)) {
-            replaceWithBiggest(units, toAdd);
-          }
+    charCountMap.entrySet().stream()
+        .filter(entry -> entry.getValue() > 1)
+        .forEach(entry -> {
+            Unit toAdd = new Unit(prefix, entry.getKey(), entry.getValue());
+            if (!units.add(toAdd)) {
+              takeLongest(units, toAdd);
+            }
         });
   }
 
-  private void replaceWithBiggest(HashSet<Unit> set, Unit toAdd) {
+  private void takeLongest(HashSet<Unit> set, Unit toAdd) {
     Optional<Unit> cur = set.stream().filter(it -> it.equals(toAdd)).findFirst();
     if (cur.isPresent()) {
       Unit unit = cur.get();
@@ -71,24 +72,9 @@ public class StringsMixTest {
     set.add(newUnit);
   }
 
-  public LinkedHashMap<String, Integer> countCharsWithOrder(String str) {
+  public Map<String, Integer> countChars(String str) {
     return Arrays.stream(str.replaceAll("[^a-z]", "").split(""))
-        .collect(Collectors.toMap(Function.identity(), s -> 1, Integer::sum))
-        .entrySet()
-        .stream()
-        .filter(entry -> entry.getValue() > 1)
-        .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-        .collect(
-            Collectors.toMap(
-                Map.Entry::getKey, Map.Entry::getValue, (o, o2) -> o, LinkedHashMap::new));
-  }
-
-  public void printMap(Map<String, Integer> charCountMap) {
-    charCountMap.forEach((key, value) -> System.out.println(key + " " + value));
-  }
-
-  public void print(Collection<?> collection) {
-    collection.forEach(System.out::println);
+        .collect(Collectors.toMap(Function.identity(), s -> 1, Integer::sum));
   }
 
   class Unit {
@@ -104,10 +90,6 @@ public class StringsMixTest {
 
     public boolean smaller(Unit u) {
       return this.count < u.count;
-    }
-
-    public Unit biggest(Unit o) {
-      return this.count > o.count ? this : o;
     }
 
     public String name() {
@@ -127,15 +109,6 @@ public class StringsMixTest {
     @Override
     public int hashCode() {
       return letter.hashCode();
-    }
-
-    @Override
-    public String toString() {
-      return "Unit{" +
-          "name='" + name + '\'' +
-          ", letter='" + letter + '\'' +
-          ", count=" + count +
-          '}';
     }
   }
 }
