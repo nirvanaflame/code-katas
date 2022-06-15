@@ -14,6 +14,6 @@ class SmallEnoughTest {
   }
 
   private fun smallEnough(a: IntArray, limit: Int): Boolean {
-    return a.all { it < limit }
+    return a.all { it <= limit }
   }
 }

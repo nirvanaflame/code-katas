@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MaximumSubarrayTest {
+public class MaximumSubArrayTest {
 
   @Test
   void test() {
@@ -28,7 +28,7 @@ public class MaximumSubarrayTest {
 
   // Kadane's algorithm.
   public int maxSubArray(int[] nums) {
-    int max = 0, sum = 0;
+    int max = nums[0], sum = 0;
 
     for (int i = 0; i < nums.length; i++) {
       int v = nums[i];
