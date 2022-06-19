@@ -2,7 +2,7 @@ import { assert } from "chai";
 
 describe("N-th Power", () => {
 
-  it("Basic test should pass", () => {
+  it("basic test", () => {
     assert.equal(index([1, 2, 3, 4], 2), 9);
     assert.equal(index([1, 3, 10, 100], 3), 1000000);
     assert.equal(index([0, 1], 0), 1);
@@ -14,13 +14,13 @@ describe("N-th Power", () => {
     assert.equal(index([75, 68, 35, 61, 9, 36, 89, 0, 30], 10), -1);
   }),
 
-    it("Failed random result", () => {
-      assert.equal(index([1, 9, 2, 1], 4), -1)
-    }),
+  it("random test from codewars", () => {
+    assert.equal(index([1, 9, 2, 1], 4), -1)
+  }),
 
-    it("Check best Index", () => {
-      assert.equal(bestIndex([1, 9, 2, 1], 4), -1)
-    })
+  it("best solution example", () => {
+    assert.equal(bestIndex([1, 9, 2, 1], 4), -1)
+  })
 
 });
 

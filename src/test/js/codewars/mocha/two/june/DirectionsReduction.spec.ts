@@ -1,8 +1,8 @@
 import { assert } from "chai";
 
 
-describe("Fixed Tests", function () {
-  it("dirReduc", function () {
+describe("Direction reduction", function () {
+  it("basic tests", function () {
     assert.deepEqual(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]), ["WEST"]);
     assert.deepEqual(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"]), []);
   });
@@ -18,7 +18,7 @@ export function dirReduc(arr: string[]): string[] {
 
     if (typeof prev === 'undefined') { 
       result.push(cur)
-    } else if (!oposite(prev, cur)) {
+    } else if (!opposite(prev, cur)) {
       result.push(prev);
       result.push(cur);
     };
@@ -27,7 +27,7 @@ export function dirReduc(arr: string[]): string[] {
 }
 
 
-function oposite(direction: string, oppositeDirection: string): boolean {
+function opposite(direction: string, oppositeDirection: string): boolean {
   switch (direction) {
     case 'WEST': return oppositeDirection === 'EAST';
     case 'EAST': return oppositeDirection === 'WEST';
