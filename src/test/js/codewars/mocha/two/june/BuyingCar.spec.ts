@@ -1,7 +1,16 @@
-import { assert } from "chai";
+import { assert } from 'chai';
 
-function testing(startPriceOld: number, startPriceNew: number, savingperMonth: number, percentLossByMonth: number, expected: number[]) {
-  assert.deepEqual(nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth), expected);
+function testing(
+  startPriceOld: number,
+  startPriceNew: number,
+  savingperMonth: number,
+  percentLossByMonth: number,
+  expected: number[]
+) {
+  assert.deepEqual(
+    nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth),
+    expected
+  );
 }
 
 describe("Buying car", function () {
@@ -11,25 +20,30 @@ describe("Buying car", function () {
   });
 });
 
-export function nbMonths(startPriceOld: number, startPriceNew: number, savingperMonth: number, percentLossByMonth: number): number[] {
+export function nbMonths(
+  startPriceOld: number,
+  startPriceNew: number,
+  savingperMonth: number,
+  percentLossByMonth: number
+): number[] {
   if (startPriceOld >= startPriceNew) return [0, startPriceOld - startPriceNew];
 
-  let savePerMonth = savingperMonth
+  let savePerMonth = savingperMonth;
 
   let day = 1;
   while (startPriceOld < startPriceNew) {
-    if (day % 2 === 0) percentLossByMonth += .5;
+    if (day % 2 === 0) percentLossByMonth += 0.5;
 
-    startPriceOld -= startPriceOld * percentLossByMonth / 100;
-    startPriceNew -= startPriceNew * percentLossByMonth / 100;
+    startPriceOld -= (startPriceOld * percentLossByMonth) / 100;
+    startPriceNew -= (startPriceNew * percentLossByMonth) / 100;
 
     // console.log(`end month ${day} percent_loss  ${percentLossByMonth} available ${startPriceOld + savingperMonth - startPriceNew}`)
 
     if (savingperMonth + startPriceOld > startPriceNew) {
-      return [day, Math.round(savingperMonth + startPriceOld - startPriceNew)]
+      return [day, Math.round(savingperMonth + startPriceOld - startPriceNew)];
     }
 
     savingperMonth += savePerMonth;
-    day++
+    day++;
   }
 }
