@@ -40,7 +40,6 @@ function longestConsequence(a: string[], k: number): string {
     let localMax = 0;
     for (let j = step; j < i; j++) {
       localMax += a[j].length;
-      console.log(localMax);
     }
     if (max < localMax) {
       max = localMax;
