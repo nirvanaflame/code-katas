@@ -56,7 +56,6 @@ public class SumOfNodes {
     bt.root.left.left = new Node(1);
     bt.root.right.left = new Node(8);
     bt.root.right.right = new Node(6);
-
     //Display the sum of all the nodes in the given binary tree
     // System.out.println("Sum of all nodes of binary tree: " + bt.calculateSum(bt.root));
 

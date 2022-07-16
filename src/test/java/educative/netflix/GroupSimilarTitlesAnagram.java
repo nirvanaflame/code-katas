@@ -1,8 +1,11 @@
 package educative.netflix;
 
-import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GroupSimilarTitlesAnagram {
 
@@ -27,7 +30,6 @@ public class GroupSimilarTitlesAnagram {
     return anagrams;
   }
 
-  @NotNull
   private static String createKey(String str) {
     Arrays.fill(count, 0);
 
