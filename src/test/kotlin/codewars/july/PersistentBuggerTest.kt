@@ -45,7 +45,6 @@ class PersistentBuggerTest {
         if (n == 0) return 0
         while (number > 9) {
             count++
-            println(number)
             number = number.toString()
                     .split("")
                     .filter(String::isNotBlank)

@@ -21,7 +21,6 @@ class CountTheDigitTest {
         for (i in 0..n) {
             val k = i * i
             count += k.toString().count { Character.getNumericValue(it) == d }
-            println()
         }
         return count
     }

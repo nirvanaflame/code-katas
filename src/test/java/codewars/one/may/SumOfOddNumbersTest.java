@@ -46,7 +46,7 @@ class SumOfOddNumbersTest {
         matrix[row][col] = odd;
         odd += 2;
       }
-      System.out.println(Arrays.toString(matrix[row]));
+      // System.out.println(Arrays.toString(matrix[row]));
     }
 
     return matrix[n - 1];

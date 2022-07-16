@@ -32,13 +32,9 @@ class ClosestToZeroTest {
               boolean notEqual = abs(a) != abs(b);
               int absMinus = abs(a) - abs(b);
               int minusReversed = b - a;
-              int base = notEqual ? absMinus : minusReversed;
-              System.out.println("a = " + a + ", b = " + b);
-              System.out.println(
-                  notEqual + " ? " + absMinus + " : " + minusReversed + " _> " + base);
-              return base;
+              return notEqual ? absMinus : minusReversed;
             })
-        .peek(System.out::println)
+        // .peek(System.out::println)
         .iterator()
         .next();
   }

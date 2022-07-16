@@ -65,7 +65,7 @@ class SkyscrapersFourByFourTest {
             int[] column = getColumn(field, clueToIndexMap.get(clueIndex));
 
 
-            System.out.println(Arrays.toString(row));
+            // System.out.println(Arrays.toString(row));
             isNotFilled = false;
           }
           case 3 -> {}

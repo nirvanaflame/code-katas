@@ -1,11 +1,6 @@
 package educative.netflix;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GroupSimilarTitlesAnagram {
 
@@ -18,9 +13,9 @@ public class GroupSimilarTitlesAnagram {
 
     for (String title : titles) {
 
-      System.out.println(title);
+      // System.out.println(title);
       String key = createKey(title);
-      System.out.println(key);
+      // System.out.println(key);
 
       if (!anagrams.containsKey(key)) anagrams.put(key, new ArrayList<>());
 
@@ -60,7 +55,7 @@ public class GroupSimilarTitlesAnagram {
     List<String> anagrams = searchTitle(gt, query);
 
     for (String a : anagrams) {
-      System.out.println("result: " + a);
+      // System.out.println("result: " + a);
     }
   }
 }

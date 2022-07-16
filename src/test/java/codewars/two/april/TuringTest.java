@@ -20,13 +20,13 @@ class TuringTest {
         unique(a, b);
 
         int[] rotate = rotate(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-        System.out.println(Arrays.toString(rotate));
+        // System.out.println(Arrays.toString(rotate));
 
         int[] rotate2 = rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-        System.out.println(Arrays.toString(rotate2));
+        // System.out.println(Arrays.toString(rotate2));
 
         int[] shiftArr = shiftArr(new int[]{1, 2, 3, 4, 5, 6, 7}, 3);
-        System.out.println(Arrays.toString(shiftArr));
+        // System.out.println(Arrays.toString(shiftArr));
 
     }
 
@@ -45,7 +45,7 @@ class TuringTest {
         }
 
         unique.removeAll(common);
-        System.out.println(unique);
+        // System.out.println(unique);
     }
 
     static int[] rotate(int[] nums, int k) {
@@ -53,7 +53,7 @@ class TuringTest {
         int[] result = new int[length];
 
         int index = 0;
-        System.out.println(index);
+        // System.out.println(index);
         int r = length - k;
         for (int i = r; i < length; i++) {
             int val = nums[i];
@@ -61,7 +61,7 @@ class TuringTest {
             index++;
         }
 
-        System.out.println(index);
+        // System.out.println(index);
 
         for (int i = 0; i < r; i++) {
             result[index] = nums[i];

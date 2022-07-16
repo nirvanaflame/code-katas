@@ -25,7 +25,7 @@ class MergeSortedArrayTest {
 
   int[] merge(int[] arr0, int n, int[] arr1, int m) {
 
-    System.out.println(Arrays.toString(arr0));
+    // System.out.println(Arrays.toString(arr0));
 
     int count = 0;
     for (int i = 0; i < arr0.length; i++) {

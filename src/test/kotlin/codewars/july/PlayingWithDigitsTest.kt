@@ -41,7 +41,6 @@ class PlayingWithDigitsTest {
 
     @Test
     fun `should return 51 for one liner`() {
-        println(callPowerInfix())
         assertEquals(51, digitPow(46288, 3))
     }
 
