@@ -2,6 +2,7 @@
   "name": "js-katas",
   "version": "1.0.0",
   "scripts": {
+    "lint": "eslint . --ext .ts",
     "test": "mocha 'codewars/**/*.js' --watch",
     "ts": "set TS_NODE_COMPILER_OPTIONS={\"module\": \"commonjs\" } && mocha -r ts-node/register 'codewars/**/*.ts'"
   },
