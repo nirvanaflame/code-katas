@@ -46,4 +46,5 @@ export function nbMonths(
     savingperMonth += savePerMonth;
     day++;
   }
+  return [];
 }

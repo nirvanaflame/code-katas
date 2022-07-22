@@ -1,6 +1,6 @@
-import { assert } from "chai";
+import { assert } from 'chai';
 
-function testing(listOfArt, listOfCat, expected) {
+function testing(listOfArt: string[], listOfCat: string[], expected: string) {
   assert.equal(G964.stockList(listOfArt, listOfCat), expected);
 }
 
@@ -16,36 +16,33 @@ describe("Help bookseller", function () {
   it("empty input", function () {
     var b, c, res;
     b = [];
-    c = ['B', 'R', 'D', 'X'];
+    c = ["B", "R", "D", "X"];
     res = "(B : 0) - (R : 0) - (D : 0) - (X : 0)";
     testing(b, c, res);
   });
 });
 
-
 export class G964 {
-
-  public static stockList = (listOfArt, listOfCat) => {
-    
+  public static stockList = (listOfArt: string[], listOfCat: string[]) => {
     const map: Map<string, number> = new Map();
-    listOfArt.forEach(art => {
+    listOfArt.forEach((art) => {
       const [cat, amount] = art.split(" ");
-      const fChar = cat.charAt(0)
+      const fChar = cat.charAt(0);
 
       mapMerge(map, fChar, Number(amount));
-    })
+    });
 
-    let out = ""
-    listOfCat.forEach(cat => {
-      out += `(${cat} : ${getValOrZero(map, cat)}) - `
-    })
+    let out = "";
+    listOfCat.forEach((cat) => {
+      out += `(${cat} : ${getValOrZero(map, cat)}) - `;
+    });
 
     return out.slice(0, out.length - 3);
-  }
+  };
 }
 
 function getValOrZero(map: Map<string, number>, cat: string): number {
-  return typeof map[cat] === 'undefined' ? 0 : map[cat];
+  return typeof map[cat] === "undefined" ? 0 : map[cat];
 }
 
 function mapMerge(map: Map<string, number>, cat: string, amount: number): void {

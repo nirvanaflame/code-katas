@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import static java.math.BigInteger.*;
+import static java.math.BigInteger.ONE;
+import static java.math.BigInteger.valueOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AlphabeticAnagramsTest {
@@ -15,11 +16,12 @@ class AlphabeticAnagramsTest {
   @Test
   void testKnownInputs() {
 
-    // assertEquals(ONE, listPosition("A"), "Position for 'A' incorrect");
-    // assertEquals(valueOf(2), listPosition("ABAB"), "Position for 'ABAB' incorrect");
-    // assertEquals(ONE, listPosition("AAAB"), "Position for 'AAAB' incorrect");
-    // assertEquals(valueOf(4), listPosition("BAAA"), "Position for 'BAAA' incorrect");
-    // assertEquals(BigInteger.valueOf(24572), listPosition("QUESTION"), "Position for 'QUESTION' incorrect");
+    assertEquals(ONE, listPosition("A"), "Position for 'A' incorrect");
+    assertEquals(valueOf(2), listPosition("ABAB"), "Position for 'ABAB' incorrect");
+    assertEquals(ONE, listPosition("AAAB"), "Position for 'AAAB' incorrect");
+    assertEquals(valueOf(4), listPosition("BAAA"), "Position for 'BAAA' incorrect");
+    assertEquals(
+        BigInteger.valueOf(24572), listPosition("QUESTION"), "Position for 'QUESTION' incorrect");
     assertEquals(BigInteger.valueOf(10743), listPosition("BOOKKEEPER"), "Position for 'BOOKKEEPER' incorrect");
 
   }
