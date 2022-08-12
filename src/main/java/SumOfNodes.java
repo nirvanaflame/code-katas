@@ -1,4 +1,4 @@
-public class SumOfNodes {
+class SumOfNodes {
 
   //Represent the node of binary tree
   public static class Node{

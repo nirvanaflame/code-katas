@@ -110,7 +110,7 @@ class Student {
     return name;
   }
 
-  public void setName(String name) {
+  void setName(String name) {
     this.name = name;
   }
 
@@ -118,7 +118,7 @@ class Student {
     return grade;
   }
 
-  public void setGrade(double grade) {
+  void setGrade(double grade) {
     this.grade = grade;
   }
 
@@ -126,7 +126,7 @@ class Student {
     return department;
   }
 
-  public void setDepartment(String department) {
+  void setDepartment(String department) {
     this.department = department;
   }
 
@@ -134,7 +134,7 @@ class Student {
     return gender;
   }
 
-  public void setGender(Gender gender) {
+  void setGender(Gender gender) {
     this.gender = gender;
   }
 

@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class HumanReadableTimeTest {
+class HumanReadableTimeTest {
 
   @Test
-  public void Tests() {
+  void test() {
     assertEquals("00:00:00", makeReadable(0));
     assertEquals("00:00:05", makeReadable(5));
     assertEquals("00:01:00", makeReadable(60));
@@ -16,7 +16,7 @@ public class HumanReadableTimeTest {
     assertEquals( "99:59:59", makeReadable(359999));
   }
 
-  private String makeReadable(int time) {
+  String makeReadable(int time) {
     int seconds, minutes, hours;
     seconds = minutes = hours = 0;
     seconds = time % 60;

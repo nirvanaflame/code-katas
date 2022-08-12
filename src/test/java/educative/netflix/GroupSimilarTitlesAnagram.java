@@ -2,7 +2,7 @@ package educative.netflix;
 
 import java.util.*;
 
-public class GroupSimilarTitlesAnagram {
+class GroupSimilarTitlesAnagram {
 
   private static final int[] count = new int[26];
 

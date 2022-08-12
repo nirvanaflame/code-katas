@@ -16,7 +16,7 @@ class ReducingByStepsTest {
   }
 
   @Test
-  public void test0() {
+  void test0() {
     long[] a = new long[] {18, 69, -90, -78, 65, 40};
 
     long[] r = new long[] {18, 3, 3, 3, 1, 1};
