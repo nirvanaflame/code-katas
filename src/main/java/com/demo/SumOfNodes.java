@@ -1,3 +1,5 @@
+package com.demo;
+
 class SumOfNodes {
 
   //Represent the node of binary tree
@@ -47,6 +49,7 @@ class SumOfNodes {
   }
 
   public static void main(String[] args) {
+
 
     SumOfNodes bt = new SumOfNodes();
     //Add nodes to the binary tree

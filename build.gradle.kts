@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.20"
     idea
     java
     groovy
@@ -23,8 +23,8 @@ java {
 
 dependencies {
     testImplementation("org.assertj:assertj-core:3.23.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     testImplementation(kotlin("test"))
