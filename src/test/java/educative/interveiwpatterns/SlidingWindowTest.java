@@ -57,11 +57,11 @@ class SlidingWindowTest {
             LinkedList<Integer> deque = new LinkedList<>();
             for(int i = 0; i < data.size(); i++) {
                 // Remove elements that are out of the current window
-                while (!deque.isEmpty() && deque.peek() < i - windowSize + 1) {
+                while(!deque.isEmpty() && deque.peek() < i - windowSize + 1) {
                     deque.poll();
                 }
                 // Remove elements that are smaller than the current element
-                while (!deque.isEmpty() && data.get(deque.peekLast()) < data.get(i)) {
+                while(!deque.isEmpty() && data.get(deque.peekLast()) < data.get(i)) {
                     deque.pollLast();
                 }
                 // Add the current element
@@ -75,21 +75,21 @@ class SlidingWindowTest {
         }
 
         public static ArrayDeque<Integer> chatGPT(List<Integer> nums, int windowSize) {
-            if (nums == null || nums.isEmpty()) {
+            if(nums == null || nums.isEmpty()) {
                 return new ArrayDeque<>();
             }
-            if (windowSize > nums.size()) {
+            if(windowSize > nums.size()) {
                 windowSize = nums.size();
             }
-            if (windowSize <= 0) {
+            if(windowSize <= 0) {
                 return new ArrayDeque<>();
             }
 
             ArrayDeque<Integer> result = new ArrayDeque<>();
             List<Integer> mutableNums = new ArrayList<>(nums);
-            for (int i = 0; i < mutableNums.size() - windowSize + 1; i++) {
+            for(int i = 0; i < mutableNums.size() - windowSize + 1; i++) {
                 int max = Integer.MIN_VALUE;
-                for (int j = i; j < i + windowSize; j++) {
+                for(int j = i; j < i + windowSize; j++) {
                     max = Math.max(max, mutableNums.get(j));
                 }
                 result.add(max);
@@ -97,8 +97,6 @@ class SlidingWindowTest {
 
             return result;
         }
-
-
 
 
         @Test void checkFindMaxSlidingWindow() {
@@ -145,7 +143,7 @@ class SlidingWindowTest {
             int indexStart, indexT, indexLastMatch;
             indexStart = indexT = indexLastMatch = 0;
 
-            while (s.length() - indexStart > t.length()) {
+            while(s.length() - indexStart > t.length()) {
                 indexStart = findStart(s, t, indexStart, indexT);
 
                 if(indexStart == bestEnd) break;
@@ -181,7 +179,7 @@ class SlidingWindowTest {
         }
 
         private static int findStart(String s, String t, int indexS, int indexT) {
-            while (indexS < s.length() && s.charAt(indexS) != t.charAt(indexT)) {
+            while(indexS < s.length() && s.charAt(indexS) != t.charAt(indexT)) {
                 indexS++;
             }
             return indexS;
@@ -246,13 +244,13 @@ class SlidingWindowTest {
             List<String> repeated = new ArrayList<>();
 
             // Iterate through the string, extracting substrings of length k
-            for (int i = 0; i <= str.length() - k; i++) {
+            for(int i = 0; i <= str.length() - k; i++) {
                 String substring = str.substring(i, i + k);
                 // If the Map contains the substring, increment its count
-                if (map.containsKey(substring)) {
+                if(map.containsKey(substring)) {
                     map.put(substring, map.get(substring) + 1);
                     // If the count is greater than 1, add the substring to the list
-                    if (map.get(substring) > 1) {
+                    if(map.get(substring) > 1) {
                         repeated.add(substring);
                     }
                 } else {
@@ -272,10 +270,10 @@ class SlidingWindowTest {
 
         static Stream<Arguments> findRepeatedSequencesTestCasesChat() {
             return Stream.of(
-                    Arguments.of("AAAACCCCTAAAACCCCC", 8, List.of("AAAACCCC")),
-                    Arguments.of("GGGGGGGGGGGGGGGGGGGGGGGGG", 12, List.of("GGGGGGGGGGGG")),
-                    Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAACCCCC", "AAAACCCC")),
-                    Arguments.of("ATATATATATATATAT", 6, List.of("ATATAT", "TATATA"))
+                Arguments.of("AAAACCCCTAAAACCCCC", 8, List.of("AAAACCCC")),
+                Arguments.of("GGGGGGGGGGGGGGGGGGGGGGGGG", 12, List.of("GGGGGGGGGGGG")),
+                Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAACCCCC", "AAAACCCC")),
+                Arguments.of("ATATATATATATATAT", 6, List.of("ATATAT", "TATATA"))
             );
         }
 
@@ -287,29 +285,155 @@ class SlidingWindowTest {
 
         static Stream<Arguments> findRepeatedSequencesTestCases() {
             return Stream.of(
-                    Arguments.of("AAAACCCCTAAAACCCCC", 8, List.of("AAAACCCC")),
-                    Arguments.of("GGGGGGGGGGGGGGGGGGGGGGGGG", 12, List.of("GGGGGGGGGGGG")),
-                    Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAACCCCC", "AAAACCCC")),
-                    Arguments.of("ATATATATATATATAT", 6, List.of("ATATAT", "TATATA"))
+                Arguments.of("AAAACCCCTAAAACCCCC", 8, List.of("AAAACCCC")),
+                Arguments.of("GGGGGGGGGGGGGGGGGGGGGGGGG", 12, List.of("GGGGGGGGGGGG")),
+                Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAACCCCC", "AAAACCCC")),
+                Arguments.of("ATATATATATATATAT", 6, List.of("ATATAT", "TATATA"))
             );
         }
 
     }
 
     @Nested @DisplayName("Minimum Window Substring") class MinimumWindowsSubstring {
-        public static String minWindow(String s, String t) {
-            var tCount = new HashMap<Character, Integer>();
-            for(char c : t.toCharArray()) {
-                tCount.put(c, tCount.get(c) + 1);
+
+        @Test void checkMinWindow() {
+            assertThat(minWindow("ABDOEDECOBE", "BC")).isEqualTo("COB");
+            assertThat(minWindow("DFFDFDFDVD", "VDD")).isEqualTo("DVD");
+        }
+
+        String minWindow(String s, String t) {
+            if(Objects.equals(t, "")) {
+                return "";
             }
 
+            var rCount = new HashMap<Character, Integer>();
+            for(var c : t.toCharArray()) {
+                rCount.put(c, rCount.getOrDefault(c, 0) + 1);
+            }
+
+            int l = 0;
+            int r = 0;
+            int current = 0;
+            int required = rCount.size();
+            int resLen = Integer.MAX_VALUE;
             int start = 0;
-            for(int i = 0; i < s.length(); i++) {
-                var c = s.charAt(i);
 
+            var window = new HashMap<Character, Integer>();
+            while(r < s.length()) {
+                char c = s.charAt(r++);
+
+                // Populating the window hashmap
+                if(rCount.containsKey(c)) {
+                    window.put(c, window.getOrDefault(c, 0) + 1);
+
+                    if(window.get(c).equals(rCount.get(c))) {
+                        current++;
+                    }
+                }
+
+                // Adjusting the sliding window
+                while(current == required) {
+                    // update our result
+                    if(r - l < resLen) {
+                        start = l;
+                        resLen = r - l;
+                    }
+
+                    char d = s.charAt(l++);
+
+                    if(rCount.containsKey(d)) {
+                        if(window.get(d).equals(rCount.get(d))) {
+                            current--;
+                        }
+                        window.put(d, window.get(d) - 1);
+                    }
+                }
             }
 
-            return "";
+            return resLen == Integer.MAX_VALUE ? "" : s.substring(start, start + resLen);
+        }
+
+
+        @Test void checkMinWindow2() {
+            assertThat(minWindow("ABDOEDECOBE", "BC")).isEqualTo("COB");
+            assertThat(minWindow2("DFFDFDFDVD", "VDD")).isEqualTo("DVD");
+        }
+
+        String minWindow2(String s, String t) {
+            if(t.isBlank()) {
+                return "";
+            }
+
+            var rCount = new HashMap<Character, Integer>();
+            var window = new HashMap<Character, Integer>();
+
+            for(char c : t.toCharArray()) {
+                rCount.put(c, rCount.getOrDefault(c, 0) + 1);
+            }
+
+            int r, l, resLen = Integer.MAX_VALUE, start, current;
+            r = l = start = current = 0;
+            var required = rCount.size();
+
+
+            while(r < s.length()) {
+                var c = s.charAt(r++);
+
+                if(rCount.containsKey(c)) {
+                    window.put(c, window.getOrDefault(c, 0) + 1);
+
+                    if(window.get(c).equals(rCount.get(c))) {
+                        current++;
+                    }
+                }
+
+                while(current == required) {
+                    if(r - l < resLen) {
+                        start = l;
+                        resLen = r - l;
+                    }
+
+                    var d = s.charAt(l++);
+
+                    if(rCount.containsKey(d)) {
+                        if(window.get(d).equals(rCount.get(d))) {
+                            current--;
+                        }
+
+                        window.put(d, window.get(d) - 1);
+                    }
+                }
+            }
+
+
+            return resLen == Integer.MAX_VALUE ? "" : s.substring(start, start + resLen);
+        }
+    }
+
+    @Nested @DisplayName("Longest Substring Without Repeating Substring") class LongestWindowSubstring {
+
+        @Test void testLongestSubstringInWindow() {
+            assertThat(longestSubstring("abcdbea")).isEqualTo(5);
+            assertThat(longestSubstring("pwwkew")).isEqualTo(3);
+        }
+
+        private int longestSubstring(String s) {
+
+            int max = 0, start = 0, end = 0;
+            var window = new HashMap<Character, Integer>();
+            while (start < s.length() && end < s.length()) {
+                var c = s.charAt(end);
+                if (!window.containsKey(c)) {
+                    window.put(c, 1);
+                    end++;
+                    max = Math.max(max, end - start);
+                } else {
+                    var d = s.charAt(start);
+                    window.remove(d);
+                    start++;
+                }
+            }
+            return max;
         }
     }
 }
