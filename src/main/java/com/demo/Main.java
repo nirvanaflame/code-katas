@@ -1,35 +1,26 @@
 package com.demo;
 
+
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Main {
 
+    enum Signal {
+        WINK, BLINK
+    }
+
     public static void main(String[] args) {
-        MagicNumber[] numbers = new MagicNumber[8];
+        int x = 31;
+        var s = Integer.toBinaryString(x);
+        var c = s.charAt(1);
+        var signals = new ArrayList<Signal>();
+        signals.add(Signal.BLINK);
+        signals.add(Signal.WINK);
 
-        for(int i = 0; i < numbers.length; i++) {
-            MagicNumber magicNumber = new MagicNumber(i);
-            System.out.println(magicNumber.number);
-        }
-    }
+        Collections.reverse(signals);
 
-}
-
-class MagicNumber {
-
-    private final static int[] NUMBERS;
-    private static int next = 0;
-
-    public int number;
-
-    static {
-        NUMBERS = new int[]{1, 3, 7, 15, 31, 63};
-    }
-
-    {
-        this.number = NUMBERS[next % NUMBERS.length];
-        next++;
-    }
-
-    public MagicNumber(int base) {
-        this.number += base;
+        System.out.println(c);
+        System.out.println(s);
     }
 }

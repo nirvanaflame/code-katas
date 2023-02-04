@@ -8,3 +8,8 @@ fun main() {
   example.substring(0, 0)  // 4
 //  example.substring(0, 8)  // 5
 }
+
+fun sortedSquares(nums: IntArray): IntArray {
+
+  return nums.map { it * it }.sorted().toIntArray()
+}

@@ -272,7 +272,7 @@ class SlidingWindowTest {
             return Stream.of(
                 Arguments.of("AAAACCCCTAAAACCCCC", 8, List.of("AAAACCCC")),
                 Arguments.of("GGGGGGGGGGGGGGGGGGGGGGGGG", 12, List.of("GGGGGGGGGGGG")),
-                Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAACCCCC", "AAAACCCC")),
+                Arguments.of("AAAAACCCCCAAAAACCCCCC", 8, List.of("AAAAACCC", "AAAACCCC", "AAACCCCC")),
                 Arguments.of("ATATATATATATATAT", 6, List.of("ATATAT", "TATATA"))
             );
         }
