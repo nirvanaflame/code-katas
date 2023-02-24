@@ -1,7 +1,5 @@
 package dp
 
-import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.math.min
 
 fun climbStairs(n: Int): Int {
@@ -113,18 +111,18 @@ fun paidStaircaseCheapPath(n: Int, p: IntArray): Int {
 fun main() {
     println(paidStaircaseCheapPath(3, intArrayOf(0, 3, 2, 4)))
 
-//    println(paidStaircase(3, intArrayOf(0, 3, 2, 4)))
-//
-//    println(
-//        climbStairsKStepsSkippedRed(
-//            7, 3,
-//            booleanArrayOf(false, true, false, true, true, false, false)
-//        )
-//    )
-//    println(climbStairsKSteps(5, 3) == climbStairsKStepsMemOptimized(5, 3))
-//    println(climbStairsKSteps(5, 3) == climbStairsThreeSteps(5))
-//    println(climbStairsKSteps(5, 2) == climbStairs(5))
-//
-//    println(climbStairsThreeSteps(5) == climbStairs(6))
-//    println(climbStairsBest(5) == climbStairs(5))
+    println(paidStaircase(3, intArrayOf(0, 3, 2, 4)))
+
+    println(
+        climbStairsKStepsSkippedRed(
+            7, 3,
+            booleanArrayOf(false, true, false, true, true, false, false)
+        )
+    )
+    println(climbStairsKSteps(5, 3) == climbStairsKStepsMemOptimized(5, 3))
+    println(climbStairsKSteps(5, 3) == climbStairsThreeSteps(5))
+    println(climbStairsKSteps(5, 2) == climbStairs(5))
+
+    println(climbStairsThreeSteps(5) == climbStairs(6))
+    println(climbStairsBest(5) == climbStairs(5))
 }
