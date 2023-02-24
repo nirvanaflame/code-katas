@@ -13,6 +13,7 @@ fun climbStairs(n: Int): Int {
     return dp[n]
 }
 
+
 fun climbStairsBest(n: Int): Int {
     if (n <= 2) return n
     var step1 = 1
@@ -25,6 +26,7 @@ fun climbStairsBest(n: Int): Int {
     }
     return step2
 }
+
 
 fun climbStairsThreeSteps(n: Int): Int {
 
@@ -43,6 +45,7 @@ fun climbStairsThreeSteps(n: Int): Int {
     return d
 }
 
+
 fun climbStairsKSteps(n: Int, k: Int): Int {
     val dp = IntArray(n + 1)
     dp[0] = 1
@@ -56,6 +59,7 @@ fun climbStairsKSteps(n: Int, k: Int): Int {
     return dp[n]
 }
 
+
 fun climbStairsKStepsMemOptimized(n: Int, k: Int): Int {
     val dp = IntArray(k)
     dp[0] = 1
@@ -67,6 +71,7 @@ fun climbStairsKStepsMemOptimized(n: Int, k: Int): Int {
     }
     return dp[n % k]
 }
+
 
 fun climbStairsKStepsSkippedRed(n: Int, k: Int, stairs: BooleanArray): Int {
     val dp = IntArray(k)
@@ -84,6 +89,7 @@ fun climbStairsKStepsSkippedRed(n: Int, k: Int, stairs: BooleanArray): Int {
     return dp[n % k]
 }
 
+
 fun paidStaircase(n: Int, p: IntArray): Int {
     val dp = IntArray(n + 1)
     dp[0] = 0
@@ -93,6 +99,7 @@ fun paidStaircase(n: Int, p: IntArray): Int {
     }
     return dp[n]
 }
+
 
 fun paidStaircaseCheapPath(n: Int, p: IntArray): Int {
     var dp = IntArray(n + 1)
