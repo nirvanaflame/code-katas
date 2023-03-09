@@ -2,34 +2,21 @@ package com.demo;
 
 public class Main {
 
-    public static void main(String[] args) {
-        MagicNumber[] numbers = new MagicNumber[8];
+	public static void main(java.lang.String[] args) {
+		System.out.println(Math.min(Double.MIN_VALUE, 0.0d));
+	}
 
-        for(int i = 0; i < numbers.length; i++) {
-            MagicNumber magicNumber = new MagicNumber(i);
-            System.out.println(magicNumber.number);
-        }
-    }
+	public int factorial(int n) {
+		if (n < 0 || n > 12) {
+			throw new IllegalArgumentException("");
+		}
+		return (int) factorialUsingRecursion(n);
+	}
 
-}
-
-class MagicNumber {
-
-    private final static int[] NUMBERS;
-    private static int next = 0;
-
-    public int number;
-
-    static {
-        NUMBERS = new int[]{1, 3, 7, 15, 31, 63};
-    }
-
-    {
-        this.number = NUMBERS[next % NUMBERS.length];
-        next++;
-    }
-
-    public MagicNumber(int base) {
-        this.number += base;
-    }
+	public long factorialUsingRecursion(int n) {
+		if (n <= 2) {
+			return n;
+		}
+		return n * factorialUsingRecursion(n - 1);
+	}
 }

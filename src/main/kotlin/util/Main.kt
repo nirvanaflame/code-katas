@@ -1,10 +1,24 @@
 package util
 
+import java.util.*
+
 fun main() {
-  val example = "Example"
-  example.substring(3)     // 1
-  example.substring(0, 7)  // 2
-//  example.substring(-1, 0) // 3
-  example.substring(0, 0)  // 4
-//  example.substring(0, 8)  // 5
+    val arr = intArrayOf(-1, 0, 3, 5, 9, 12)
+    println(search(arr, 9))
+}
+
+
+fun search(nums: IntArray, target: Int): Int {
+
+    var left = 0
+    var right = nums.size - 1
+    while (left <= right) {
+        val middle = (left + right) / 2
+
+        if (nums[middle] == target) return middle
+        else if (middle > target) right = middle - 1
+        else left = middle + 1
+    }
+
+    return -1
 }
